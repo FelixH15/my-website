@@ -2,9 +2,9 @@ import Lottie from "lottie-react";
 import scrollDownAnimation from "../../assets/scrollDown.json";
 import styles from "./Hero.module.css";
 
-export default function Home() {
+export default function Hero({ onHandleScrollSection }) {
   return (
-    <section className={styles.hero}>
+    <section className={`snap-section`}>
       <div className={`${styles.nameContainer}`}>
         <h1 className={styles.heroTitle}>Felix Harris</h1>
         <p className={`text-2xl ${styles.typing1}`}>
@@ -21,6 +21,7 @@ export default function Home() {
         animationData={scrollDownAnimation}
         loop={true}
         autoplay={true}
+        onClick={onHandleScrollSection}
       />
     </section>
   );

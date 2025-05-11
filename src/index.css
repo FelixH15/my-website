@@ -3,9 +3,17 @@
 :root {
   --primary-color: #ec9c04;
   --secondary-color: #f5b301;
-  --font: "Plus Jakarta Sans", sans-serif;
+  --font: PlusJakartaSans;
   --bg-color: #242527;
   --text-color: #ffffff;
+}
+
+@font-face {
+  font-family: "PlusJakartaSans";
+  src: url("/fonts/PlusJakartaSans-Variable.ttf") format("truetype");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
 }
 
 .darkmode {
@@ -21,6 +29,11 @@
 body {
   background: var(--bg-color);
   color: var(--text-color);
-  font-family: var(--font);
   font-weight: 400;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+section::-webkit-scrollbar {
+  display: none;
 }

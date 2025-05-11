@@ -5,18 +5,10 @@
   position: relative;
 }
 
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 .heroTitle {
   color: var(--primary-color);
   text-align: center;
-  font-feature-settings: "liga", "kern";
+  font-feature-settings: "ss02" on, "ss03" on;
   font-size: 96px;
   font-style: normal;
   font-weight: 700;
