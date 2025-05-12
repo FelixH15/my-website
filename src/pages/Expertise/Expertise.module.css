@@ -2,19 +2,46 @@
   opacity: 0.3;
 }
 
-.expertiseContainer {
-  position: relative;
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.expertiseDescription {
-  opacity: 0;
-  height: 0;
-  transform: translateX(-20px);
-  transition: all 0.5s ease;
+.section {
+  opacity: 1; /* Match the final state of the animation */
+  transform: translateY(0); /* Match the final state of the animation */
+  transition: none; /* Prevent transitions on initial render */
 }
 
-.expertiseContainer:hover .expertiseDescription {
-  opacity: 1;
-  height: 100%;
-  transform: translateX(0);
+.section.animate {
+  opacity: 0; /* Start animation from hidden state */
+  transform: translateY(20px); /* Start animation from offset */
+  animation: fadeSlideIn 0.8s ease-out forwards; /* Apply animation dynamically */
+}
+
+.section:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.section:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.icon {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
 }

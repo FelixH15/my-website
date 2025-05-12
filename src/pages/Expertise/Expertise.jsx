@@ -13,6 +13,8 @@ import springboot from "../../assets/springboot.svg";
 import codeAnimation from "../../assets/design.json";
 import designAnimation from "../../assets/Designer.json";
 import Lottie from "lottie-react";
+import useInView from "../../components/util/useInView";
+import { useState, useEffect, useRef } from "react";
 
 const techArr = [
   html,
@@ -27,6 +29,14 @@ const techArr = [
 ];
 
 export default function Expertise({ expertiseRef }) {
+  const [ref, isInView] = useInView();
+  const [hasBeenInView, setHasBeenInView] = useState(false);
+  useEffect(() => {
+    if (isInView && !hasBeenInView) {
+      setHasBeenInView(true); // Ensure animation only runs once
+    }
+  }, [isInView, hasBeenInView]);
+
   return (
     <section
       className="snap-section gap-8"
@@ -34,7 +44,12 @@ export default function Expertise({ expertiseRef }) {
       ref={expertiseRef}
     >
       {/* Application Developer */}
-      <div className={`flex flex-col gap-3 w-2/2 ${styles.expertiseContainer}`}>
+      <div
+        className={`flex flex-col gap-3 w-2/2 ${styles.expertiseContainer} ${
+          hasBeenInView ? `${styles.section} ${styles.animate}` : styles.section
+        } p-4 relative`}
+        ref={ref}
+      >
         <div className="flex flex-row items-center gap-2">
           <Lottie
             style={{
@@ -42,7 +57,7 @@ export default function Expertise({ expertiseRef }) {
             }}
             animationData={codeAnimation}
             loop={true}
-            autoplay={true}
+            autoplay={true} // Lottie animation always runs
           />
           <h3 className={`text-2xl font-semibold ${styles.expertiseTitle}`}>
             Application Developer
@@ -69,7 +84,7 @@ export default function Expertise({ expertiseRef }) {
             <div className="flex flex-row gap-2">
               {techArr.map((tech) => (
                 <img
-                  className={styles.techStack}
+                  className={`${styles.techStack} ${styles.icon}`}
                   src={tech}
                   alt="tech-stack-logo"
                 />
@@ -87,19 +102,26 @@ export default function Expertise({ expertiseRef }) {
       {/* Application Developer */}
 
       {/* Designer */}
-      <div className={`flex flex-col items-end gap-2 w-2/2`}>
-        <div className="flex flex-row items-center gap-2">
-          <h3 className="text-2xl font-semibold">Designer</h3>
+
+      <div
+        className={`flex flex-col items-end gap-2 w-2/2 p-4 ${
+          styles.designerContainer
+        } ${
+          hasBeenInView ? `${styles.section} ${styles.animate}` : styles.section
+        } relative`}
+      >
+        <div className={`flex flex-row items-center gap-2`}>
+          <h3 className="text-2xl font-semibold z-10">Designer</h3>
           <Lottie
             style={{
               width: "56px",
             }}
             animationData={designAnimation}
             loop={true}
-            autoplay={true}
+            autoplay={true} // Lottie animation always runs
           />
         </div>
-        <div className="flex flex-col items-end gap-1 relative">
+        <div className={`flex flex-col items-end gap-1 relative`}>
           <p
             className="text-base font-normal text-right"
             style={{ lineHeight: "36px" }}
