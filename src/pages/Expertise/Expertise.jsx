@@ -1,5 +1,4 @@
 import styles from "./Expertise.module.css";
-import paintLogo from "../../assets/paintBrush.svg";
 import pen from "../../assets/pen.svg";
 import flow from "../../assets/flow.svg";
 import html from "../../assets/html5.svg";
@@ -35,7 +34,7 @@ export default function Expertise({ expertiseRef }) {
       ref={expertiseRef}
     >
       {/* Application Developer */}
-      <div className={`flex flex-col gap-2 w-2/2 ${styles.expertiseContainer}`}>
+      <div className={`flex flex-col gap-3 w-2/2 ${styles.expertiseContainer}`}>
         <div className="flex flex-row items-center gap-2">
           <Lottie
             style={{
@@ -45,9 +44,11 @@ export default function Expertise({ expertiseRef }) {
             loop={true}
             autoplay={true}
           />
-          <h3 className="text-2xl font-semibold">Application Developer</h3>
+          <h3 className={`text-2xl font-semibold ${styles.expertiseTitle}`}>
+            Application Developer
+          </h3>
         </div>
-        <div className="flex flex-col gap-1">
+        <div className={`flex flex-col gap-1 ${styles.expertiseDescription}`}>
           <p
             className={`text-base font-normal ${styles.codeTag}`}
             style={{ color: "var(--primary-color)" }}
