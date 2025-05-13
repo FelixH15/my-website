@@ -1,0 +1,20 @@
+.experienceContainer {
+  border-left: 2px solid var(--primary-color);
+}
+
+.experienceContainer > div::before {
+  content: "";
+  position: absolute;
+  left: -9px; /* Adjust to align with the border */
+  width: 16px;
+  height: 16px;
+  background-color: var(--secondary-color);
+  border-radius: 50%; /* Makes it a perfect circle */
+  transform: translateY(50%); /* Centers the ellipse vertically */
+  z-index: 10;
+}
+
+/* Hover effect for the div and its ::before */
+.experienceContainer > div:hover::before {
+  transform: translateY(50%) scale(1.2); /* Slightly enlarge the circle */
+}
