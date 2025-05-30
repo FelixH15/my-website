@@ -13,3 +13,7 @@
   transform: translateY(50%); /* Centers the ellipse vertically */
   z-index: 10;
 }
+
+.experienceContainer > div:first-child::before {
+  top: -8px;
+}
