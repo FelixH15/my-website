@@ -2,18 +2,16 @@
   border-left: 2px solid var(--primary-color);
 }
 
-.experienceContainer > div::before {
-  content: "";
-  position: absolute;
-  left: -9px; /* Adjust to align with the border */
-  width: 16px;
-  height: 16px;
-  background-color: var(--secondary-color);
-  border-radius: 50%; /* Makes it a perfect circle */
-  transform: translateY(50%); /* Centers the ellipse vertically */
-  z-index: 10;
+.experienceContainer > div {
+  position: relative;
 }
 
-.experienceContainer > div:first-child::before {
-  top: -8px;
+.stickyContainer {
+  position: sticky;
+  top: 0;
+  padding-top: 24px;
+}
+
+.experienceContainer::webkit-scrollbar {
+  display: none;
 }

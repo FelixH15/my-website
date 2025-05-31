@@ -35,12 +35,17 @@ function Experiences() {
   return (
     <section
       className="snap-section"
-      style={{ margin: "100px 0px", justifyContent: "flex-start" }}
+      style={{ height: "150vh", justifyContent: "flex-start" }}
     >
-      <div className="flex flex-row justify-between items-start w-2/2 gap-24">
-        <h1 className="text-3xl font-medium">Experiences</h1>
+      <div className="flex flex-row items-start w-2/2 justify-between">
         <div
-          className={`flex flex-col gap-14 pl-5 ${styles.experienceContainer} relative pb-9`}
+          className={`flex flex-col gap-5 cursor-pointer w-1/3 ${styles.stickyContainer}`}
+        >
+          <h1 className={`text-4xl font-medium`}>/Experiences</h1>
+          <p>View my full resume</p>
+        </div>
+        <div
+          className={`flex flex-col gap-14 pl-6 ${styles.experienceContainer} w-2/3 relative`}
         >
           {experiencesArr.map((experience) => (
             // Experience Card

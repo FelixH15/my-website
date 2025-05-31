@@ -43,7 +43,7 @@ export default function Expertise({ expertiseRef }) {
   return (
     <section
       className="snap-section gap-8"
-      style={{ paddingTop: "100px", justifyContent: "flex-start" }}
+      style={{ paddingTop: "80px", justifyContent: "flex-start" }}
       ref={expertiseRef}
     >
       {/* Application Developer */}
@@ -55,7 +55,7 @@ export default function Expertise({ expertiseRef }) {
       >
         <div className="flex flex-row items-center gap-2">
           <h3 className={`text-3xl font-semibold ${styles.expertiseTitle}`}>
-            Application Developer
+            Front End Developer
           </h3>
           <Lottie
             className={styles.iconAnimation}

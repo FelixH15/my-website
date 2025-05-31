@@ -8,7 +8,7 @@ export default function Hero({ onHandleScrollSection }) {
       <div className={`${styles.nameContainer}`}>
         <h1 className={styles.heroTitle}>Felix Harris</h1>
         <p className={`text-2xl ${styles.typing1}`}>
-          I'm an Application Developer and a Designer.
+          I'm a Front End Developer and a Designer.
         </p>
       </div>
       <Lottie

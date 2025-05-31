@@ -54,6 +54,11 @@
   opacity: 0;
 }
 
+.developerContainer,
+.designerContainer {
+  border: 1px solid transparent;
+}
+
 .developerContainer:hover .icon,
 .designerContainer:hover .icon {
   opacity: 0.3;
@@ -66,7 +71,6 @@
 
 .section:hover {
   background: var(--bg-color);
-  color: var(--primary-color);
   position: relative;
   border: 1px solid var(--primary-color);
 }
