@@ -4,3 +4,13 @@
 .projectCard:hover {
   border-color: var(--primary-color);
 }
+
+.projectCard:hover .cardTitle {
+  color: var(--primary-color);
+}
+
+.projectTitle {
+  position: sticky;
+  top: 0;
+  padding-top: 24px;
+}

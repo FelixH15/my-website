@@ -1,23 +1,23 @@
+import styles from "./SmartPermit.module.css";
 import { useEffect, useRef, useState } from "react";
-import styles from "./SmartAttendance.module.css";
+import homeIcon from "../../assets/home.png";
+import Label from "../../components/util/Label/Label";
+import home from "../../assets/smartPermit/home.png";
+import login from "../../assets/smartPermit/login.png";
+import pbg1 from "../../assets/smartPermit/PBG1.png";
+import pbg2 from "../../assets/smartPermit/PBG2.png";
+import pbgApprove from "../../assets/smartPermit/pbgApprove.png";
+import pbgList from "../../assets/smartPermit/pbgList.png";
+import Button from "../../components/util/Button/Button";
+import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import homeIcon from "../../assets/home.png";
-import Label from "../../components/util/Label/Label";
-import adminLogin from "../../assets/smartAttendance/adminLogin.png";
-import adminDashboard from "../../assets/smartAttendance/dashboard.png";
-import detailDashboard from "../../assets/smartAttendance/detailDashboard.png";
-import userHome from "../../assets/smartAttendance/userHome.png";
-import Button from "../../components/util/Button/Button";
-import { useNavigate } from "react-router-dom";
-
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(useGSAP);
 
-const images = [adminLogin, adminDashboard, detailDashboard, userHome];
-
-export default function SmartAttendance() {
+const images = [home, login, pbg1, pbg2, pbgApprove, pbgList];
+export default function SmartPermit() {
   const navigate = useNavigate();
   const imageContainerRef = useRef(null);
 
@@ -114,7 +114,7 @@ export default function SmartAttendance() {
     navigate("/");
   }
 
-  function handlekNextClick() {
+  function handleBackClick() {
     navigate("/genAIPlatform");
   }
 
@@ -136,7 +136,7 @@ export default function SmartAttendance() {
             className="font-bold tracking-tight title"
             style={{ fontSize: "64px" }}
           >
-            /SmartAttendance
+            /SmartPermit
           </h1>
 
           {/* Project Description Container */}
@@ -156,16 +156,13 @@ export default function SmartAttendance() {
                 className="text-xl"
                 style={{ lineHeight: "36px", letterSpacing: "-0.2px" }}
               >
-                Smart Attendance System is an absence system tailored for staff
-                and admin users to streamline and digitalize attendance
-                processes. My role in this project as a front end developer is
-                to collaborate with my team and develop an intuitive user
-                interfaces that allow staff to check in using selfies and
-                geolocation, as well as submit leave and permit requests. Also,
-                building a real-time admin dashboards for tracking daily and
-                monthly attendance, and managing approval workflows for leave
-                and permits, ensuring operational efficiency and a smooth user
-                experience across the platform.
+                Develop pilot system for building permit approval system that is
+                faster and more efficient. Perform collaborative design for the
+                overall flow of the system; Develop automation function to
+                review Building Information Model against International Building
+                Code; Contribute in development of application back-end to store
+                user inputs structurally; Develop Dashboard function to show
+                status and insight of submitted permit;
               </p>
             </div>
             {/* Project Overview */}
@@ -181,7 +178,7 @@ export default function SmartAttendance() {
                 className="text-xl"
                 style={{ lineHeight: "36px", letterSpacing: "-0.2px" }}
               >
-                2025
+                2023
               </p>
             </div>
             {/* Years */}
@@ -209,13 +206,11 @@ export default function SmartAttendance() {
               >
                 Tech Stack
               </h2>
-              <div className="flex flex-row gap-3 flex-wrap">
+              <div className="flex flex-row gap-3">
                 <Label>HTML</Label>
                 <Label>CSS</Label>
                 <Label>Javascript</Label>
-                <Label>ReactJS</Label>
-                <Label>Tailwind</Label>
-                <Label>Vercel</Label>
+                <Label>AngularJS</Label>
               </div>
             </div>
             {/* Tech Stack */}
@@ -232,7 +227,7 @@ export default function SmartAttendance() {
             <img
               key={idx}
               src={src}
-              alt={`SmartAttendance${idx + 1}`}
+              alt={`smartPermit${idx + 1}`}
               className={`w-full fade-image image${idx + 1}`}
               style={{ height: "auto", objectFit: "cover" }}
             />
@@ -245,8 +240,8 @@ export default function SmartAttendance() {
               imageLeft={homeIcon}
             />
             <div className="flex flex-row items-center gap-3">
-              <Button withImageRight={true} onHandleClick={handlekNextClick}>
-                Next
+              <Button withImageLeft={true} onHandleClick={handleBackClick}>
+                Back
               </Button>
             </div>
           </div>

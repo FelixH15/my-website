@@ -4,6 +4,7 @@ import styles from "./Projects.module.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(useGSAP);
 
@@ -33,10 +34,11 @@ const projectArr = [
 
 export default function Projects({ projectRef }) {
   const navigate = useNavigate();
+  const arrowRefs = useRef([]);
 
   useGSAP(() => {
     gsap.fromTo(
-      ".projectTitle",
+      ".projectText",
       { x: -40, opacity: 0 },
       {
         x: 0,
@@ -64,7 +66,6 @@ export default function Projects({ projectRef }) {
         scrollTrigger: {
           trigger: projectRef.current,
           start: "top bottom",
-          markers: true,
           toggleActions: "play none none none",
         },
       }
@@ -75,6 +76,32 @@ export default function Projects({ projectRef }) {
     navigate(`/${type}`);
   }
 
+  function handleMouseEnter(idx) {
+    gsap.fromTo(
+      arrowRefs.current[idx],
+      { x: 0, y: 0 },
+      {
+        x: 4,
+        y: -4,
+        duration: 0.5,
+        ease: "power2.out",
+      }
+    );
+  }
+
+  function handleMouseLeave(idx) {
+    gsap.fromTo(
+      arrowRefs.current[idx],
+      { x: 4, y: -4 },
+      {
+        x: 0,
+        y: 0,
+        duration: 0.5,
+        ease: "power2.out",
+      }
+    );
+  }
+
   return (
     <section
       className="snap-section"
@@ -82,24 +109,35 @@ export default function Projects({ projectRef }) {
       ref={projectRef}
     >
       <div className="flex flex-row justify-between items-start w-2/2">
-        <p className={`text-4xl font-medium w-1/3 projectTitle`}>/Projects</p>
+        <p
+          className={`text-4xl font-medium w-1/3 projectText ${styles.projectTitle}`}
+        >
+          /Projects
+        </p>
         <div className="flex flex-col gap-6 w-2/3 projectList">
-          {projectArr.map((project) => (
+          {projectArr.map((project, idx) => (
             <div
               key={project.type}
               className={`flex flex-row gap-10 p-6 cursor-pointer rounded-xl w-2/2 ${styles.projectCard}`}
               onClick={() => handleProjectClick(project.type)}
+              onMouseEnter={() => handleMouseEnter(idx)}
+              onMouseLeave={() => handleMouseLeave(idx)}
             >
               <p className="font-light text-base">{project.date}</p>
               <div className="flex flex-col gap-3">
                 <div className="flex flex-row gap-3">
                   <h2
-                    className="font-bold text-xl"
+                    className={`font-bold text-xl ${styles.cardTitle}`}
                     style={{ lineHeight: "128%", letterSpacing: "-0.6px" }}
                   >
                     {project.title}
                   </h2>
-                  <img src={arrowRight} className="w-3" alt="arrow-right" />
+                  <img
+                    src={arrowRight}
+                    ref={(el) => (arrowRefs.current[idx] = el)}
+                    className={`w-3 ${styles.arrow}`}
+                    alt="arrow-right"
+                  />
                 </div>
                 <p
                   className="text-base"

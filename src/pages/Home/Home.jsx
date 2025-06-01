@@ -3,10 +3,12 @@ import Expertise from "../Expertise/Expertise";
 import { useRef } from "react";
 import Experiences from "../Experiences/Experiences";
 import Projects from "../Projects/Projects";
+import AboutMe from "../AboutMe/AboutMe";
 export default function Home() {
   const expertiseRef = useRef(null);
   const experienceRef = useRef(null);
   const projectRef = useRef(null);
+  const aboutMeRef = useRef(null);
 
   function handleScrollSection() {
     expertiseRef.current.scrollIntoView({ behavior: "smooth" });
@@ -17,6 +19,7 @@ export default function Home() {
       <Expertise expertiseRef={expertiseRef} />
       <Experiences experienceRef={experienceRef} />
       <Projects projectRef={projectRef} />
+      <AboutMe aboutMeRef={aboutMeRef} />
     </section>
   );
 }
