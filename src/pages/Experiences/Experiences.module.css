@@ -1,0 +1,21 @@
+.experienceContainer {
+  border-left: 2px solid var(--primary-color);
+}
+
+.experienceContainer > div {
+  position: relative;
+}
+
+.stickyContainer {
+  position: sticky;
+  top: 0;
+  padding-top: 24px;
+}
+
+.experienceContainer::webkit-scrollbar {
+  display: none;
+}
+
+.resumeContainer:hover {
+  color: var(--primary-color);
+}

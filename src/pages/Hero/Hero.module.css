@@ -1,0 +1,53 @@
+.nameContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+}
+
+.heroTitle {
+  color: var(--primary-color);
+  text-align: center;
+  font-feature-settings: "ss02" on, "ss03" on;
+  font-size: 96px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -2.88px;
+}
+
+.typing1 {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.15em solid var(--text-color); /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  width: 100%;
+  margin: 1px auto; /* Gives that scrolling effect as the typing happens */
+  animation: typing 3s, cursor 0.4s step-end infinite alternate;
+}
+
+@keyframes cursor {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+.heroTitle {
+  animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

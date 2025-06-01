@@ -1,0 +1,120 @@
+.developerContainer .codeTag {
+  opacity: 0;
+}
+
+.designerContainer .brain {
+  margin-right: 6px;
+  width: 16px;
+  opacity: 0;
+}
+
+.icon {
+  opacity: 0;
+  animation: float 3s ease-in-out infinite;
+}
+
+.designerContainer .box {
+  opacity: 0;
+}
+
+.section {
+  opacity: 1;
+  transform: translateY(0);
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.developerText .vl {
+  border-left: 2px solid transparent;
+  height: 100%;
+  transition: opacity 0.3s ease;
+}
+
+.designerText .vl {
+  border-right: 2px solid transparent;
+  height: 100%;
+  transition: opacity 0.3s ease;
+}
+
+.section.animate {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideIn 0.8s ease-out forwards;
+}
+
+.section:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.section:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.penIcon {
+  background-color: var(--bg-color);
+  opacity: 0;
+}
+
+.developerContainer,
+.designerContainer {
+  border: 1px solid transparent;
+}
+
+.developerContainer:hover .icon,
+.designerContainer:hover .icon {
+  opacity: 0.3;
+}
+
+.developerContainer:hover .codeTag {
+  opacity: 1;
+  animation: pulse 2s infinite;
+}
+
+.section:hover {
+  background: var(--bg-color);
+  position: relative;
+  border: 1px solid var(--primary-color);
+}
+
+.designerContainer:hover .box {
+  opacity: 1;
+}
+
+.developerContainer:hover .vl {
+  border-left-color: var(--primary-color);
+  animation: pulse 2s infinite;
+}
+
+.icon:hover {
+  opacity: 1 !important;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

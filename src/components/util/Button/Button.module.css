@@ -1,0 +1,8 @@
+.btn {
+  border: 1px solid transparent;
+  border-radius: 16px;
+}
+
+.btn:hover {
+  border-color: var(--primary-color);
+}
