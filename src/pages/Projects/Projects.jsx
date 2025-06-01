@@ -105,7 +105,7 @@ export default function Projects({ projectRef }) {
   return (
     <section
       className="snap-section"
-      style={{ paddingTop: "80px", justifyContent: "flex-start" }}
+      style={{ justifyContent: "flex-start" }}
       ref={projectRef}
     >
       <div className="flex flex-row justify-between items-start w-2/2">

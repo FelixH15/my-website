@@ -14,7 +14,10 @@ export default function Home() {
     expertiseRef.current.scrollIntoView({ behavior: "smooth" });
   }
   return (
-    <section className="container" style={{ width: "55%" }}>
+    <section
+      className="container flex flex-col gap-32"
+      style={{ width: "55%" }}
+    >
       <Hero onHandleScrollSection={handleScrollSection} />
       <Expertise expertiseRef={expertiseRef} />
       <Experiences experienceRef={experienceRef} />
