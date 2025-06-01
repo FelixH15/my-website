@@ -1,13 +1,16 @@
+import { useEffect, useRef, useState } from "react";
 import styles from "./SmartAttendance.module.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import arrowBack from "../../assets/arrowBack.png";
+import homeIcon from "../../assets/home.png";
 import Label from "../../components/util/Label/Label";
 import adminLogin from "../../assets/smartAttendance/adminLogin.png";
 import adminDashboard from "../../assets/smartAttendance/dashboard.png";
 import detailDashboard from "../../assets/smartAttendance/detailDashboard.png";
 import userHome from "../../assets/smartAttendance/userHome.png";
+import Button from "../../components/util/Button/Button";
+import { useNavigate } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(useGSAP);
@@ -15,6 +18,20 @@ gsap.registerPlugin(useGSAP);
 const images = [adminLogin, adminDashboard, detailDashboard, userHome];
 
 export default function SmartAttendance() {
+  const navigate = useNavigate();
+  const imageContainerRef = useRef(null);
+
+  const [imageContainerHeight, setImageContainerHeight] = useState(0);
+
+  useEffect(() => {
+    if (imageContainerRef.current) {
+      setImageContainerHeight(imageContainerRef.current.offsetHeight);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   useGSAP(() => {
     gsap.fromTo(
       ".title",
@@ -40,9 +57,26 @@ export default function SmartAttendance() {
       }
     );
 
-    gsap.utils.toArray(".fade-image").forEach((img, i) => {
+    gsap.fromTo(
+      [".image1", ".image2"],
+      { opacity: 0, y: -40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        delay: 0.5,
+      }
+    );
+
+    gsap.set(".fade-image:not(.image1)", { opacity: 0, y: 40 });
+    gsap.set(".fade-image:not(.image2)", { opacity: 0, y: 40 });
+
+    gsap.utils.toArray(".fade-image").forEach((img, i, arr) => {
+      if (i === 0 || i === 1) return; // Skip the first image as it's already animated
+      const prevImg = arr[i - 1];
       gsap.fromTo(
-        `.image${i + 1 + 1}`,
+        img,
         { opacity: 0, y: 40 },
         {
           opacity: 1,
@@ -50,17 +84,41 @@ export default function SmartAttendance() {
           duration: 1,
           ease: "power2.out",
           scrollTrigger: {
-            trigger: img,
-            start: "top 5%",
+            trigger: prevImg,
+            start: "center center",
             toggleActions: "play none none none",
           },
         }
       );
     });
+
+    gsap.fromTo(
+      ".button-container",
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".image-container",
+          start: "bottom bottom",
+          toggleActions: "play none none none",
+          delay: 0.6,
+        },
+      }
+    );
   });
 
+  function handleBackClick() {
+    window.history.back();
+  }
+
   return (
-    <section className={`${styles.detailProjectContainer}`}>
+    <section
+      className={`${styles.detailProjectContainer}`}
+      style={{ minHeight: `${imageContainerHeight}` }}
+    >
       <div className="flex flex-row gap-32">
         <div
           className="flex flex-col gap-10 w-2/5"
@@ -140,7 +198,7 @@ export default function SmartAttendance() {
             </div>
             {/* Role */}
             {/* Tech Stack */}
-            <div className="flex flex-row gap-12 items-center pb-4 border-b-1">
+            <div className="flex flex-row gap-12 pb-4 border-b-1">
               <h2
                 className="w-[113px] font-semibold tracking-tight"
                 style={{ color: "var(--primary-color)", fontSize: "32px" }}
@@ -162,19 +220,34 @@ export default function SmartAttendance() {
         </div>
 
         {/* Image */}
-        <div className="flex flex-col w-3/5 gap-18">
+        <div
+          className="flex flex-col w-3/5 gap-18 image-container"
+          ref={imageContainerRef}
+        >
           {images.map((src, idx) => (
             <img
               key={idx}
               src={src}
               alt={`SmartAttendance${idx + 1}`}
               className={`w-full fade-image image${idx + 1}`}
-              style={{ height: "100%", objectFit: "cover" }}
+              style={{ height: "auto", objectFit: "cover" }}
             />
           ))}
-          <div>
-            {" "}
-            <img src={arrowBack} alt="" /> <p>test</p>
+          <div className="flex flex-row items-center justify-between button-container">
+            <Button
+              withImageLeft={true}
+              onHandleClick={handleBackClick}
+              withText={false}
+              imageLeft={homeIcon}
+            />
+            <div className="flex flex-row items-center gap-3">
+              <Button
+                withImageRight={true}
+                // onHandleClick={handleBackClick}
+              >
+                Next
+              </Button>
+            </div>
           </div>
         </div>
         {/* Image */}

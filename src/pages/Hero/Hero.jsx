@@ -1,10 +1,10 @@
 import Lottie from "lottie-react";
 import scrollDownAnimation from "../../assets/scrollDown.json";
 import styles from "./Hero.module.css";
-
-export default function Hero({ onHandleScrollSection }) {
+import gsap from "gsap";
+export default function Hero({ onHandleScrollSection, heroRef }) {
   return (
-    <section className={`snap-section`}>
+    <section className={`snap-section`} ref={heroRef}>
       <div className={`${styles.nameContainer}`}>
         <h1 className={styles.heroTitle}>Felix Harris</h1>
         <p className={`text-2xl ${styles.typing1}`}>

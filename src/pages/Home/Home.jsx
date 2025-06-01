@@ -5,6 +5,8 @@ import Experiences from "../Experiences/Experiences";
 import Projects from "../Projects/Projects";
 export default function Home() {
   const expertiseRef = useRef(null);
+  const experienceRef = useRef(null);
+  const projectRef = useRef(null);
 
   function handleScrollSection() {
     expertiseRef.current.scrollIntoView({ behavior: "smooth" });
@@ -13,8 +15,8 @@ export default function Home() {
     <section className="container" style={{ width: "55%" }}>
       <Hero onHandleScrollSection={handleScrollSection} />
       <Expertise expertiseRef={expertiseRef} />
-      <Experiences />
-      <Projects />
+      <Experiences experienceRef={experienceRef} />
+      <Projects projectRef={projectRef} />
     </section>
   );
 }

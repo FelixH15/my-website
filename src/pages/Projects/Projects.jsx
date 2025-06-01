@@ -1,6 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import arrowRight from "../../assets/arrowRight.svg";
 import styles from "./Projects.module.css";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(useGSAP);
 
 const projectArr = [
   {
@@ -26,8 +31,45 @@ const projectArr = [
   },
 ];
 
-export default function Projects() {
+export default function Projects({ projectRef }) {
   const navigate = useNavigate();
+
+  useGSAP(() => {
+    gsap.fromTo(
+      ".projectTitle",
+      { x: -40, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 0.7,
+        delay: 0.4,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: projectRef.current,
+          start: "top bottom",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+
+    gsap.fromTo(
+      ".projectList",
+      { x: 40, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 0.7,
+        delay: 0.6,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: projectRef.current,
+          start: "top bottom",
+          markers: true,
+          toggleActions: "play none none none",
+        },
+      }
+    );
+  }, []);
 
   function handleProjectClick(type) {
     navigate(`/${type}`);
@@ -37,10 +79,11 @@ export default function Projects() {
     <section
       className="snap-section"
       style={{ paddingTop: "80px", justifyContent: "flex-start" }}
+      ref={projectRef}
     >
       <div className="flex flex-row justify-between items-start w-2/2">
-        <p className={`text-4xl font-medium w-1/3`}>/Projects</p>
-        <div className="flex flex-col gap-6 w-2/3">
+        <p className={`text-4xl font-medium w-1/3 projectTitle`}>/Projects</p>
+        <div className="flex flex-col gap-6 w-2/3 projectList">
           {projectArr.map((project) => (
             <div
               key={project.type}

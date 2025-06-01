@@ -1,4 +1,10 @@
 import styles from "./Experiences.module.css";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import scrollTrigger from "gsap/ScrollTrigger";
+import { useRef } from "react";
+gsap.registerPlugin(scrollTrigger);
+gsap.registerPlugin(useGSAP);
 
 const experiencesArr = [
   {
@@ -31,21 +37,61 @@ const experiencesArr = [
   },
 ];
 
-function Experiences() {
+function Experiences({ experienceRef }) {
+  const stickyContainerRef = useRef(null);
+  const experienceContainerRef = useRef(null);
+  useGSAP(() => {
+    gsap.fromTo(
+      stickyContainerRef.current,
+      { x: -40, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 0.7,
+        delay: 0.4,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: experienceRef.current,
+          start: "top bottom",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+
+    gsap.fromTo(
+      experienceContainerRef.current,
+      { x: 40, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 0.7,
+        delay: 0.6,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: experienceRef.current,
+          start: "top bottom",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+  }, []);
   return (
     <section
       className="snap-section"
       style={{ height: "150vh", justifyContent: "flex-start" }}
+      ref={experienceRef}
     >
       <div className="flex flex-row items-start w-2/2 justify-between">
         <div
           className={`flex flex-col gap-5 cursor-pointer w-1/3 ${styles.stickyContainer}`}
+          ref={stickyContainerRef}
         >
           <h1 className={`text-4xl font-medium`}>/Experiences</h1>
           <p>View my full resume</p>
         </div>
         <div
           className={`flex flex-col gap-14 pl-6 ${styles.experienceContainer} w-2/3 relative`}
+          ref={experienceContainerRef}
         >
           {experiencesArr.map((experience) => (
             // Experience Card

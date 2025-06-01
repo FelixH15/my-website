@@ -14,8 +14,13 @@ import notion from "../../assets/notion.svg";
 import figma from "../../assets/figma.svg";
 import canva from "../../assets/canva.svg";
 import Lottie from "lottie-react";
-import useInView from "../../components/util/useInView";
-import { useState, useEffect } from "react";
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(useGSAP);
 
 const techArr = [
   html,
@@ -32,13 +37,43 @@ const techArr = [
 const designArr = [notion, figma, canva];
 
 export default function Expertise({ expertiseRef }) {
-  const [ref, isInView] = useInView();
-  const [hasBeenInView, setHasBeenInView] = useState(false);
-  useEffect(() => {
-    if (isInView && !hasBeenInView) {
-      setHasBeenInView(true); // Ensure animation only runs once
-    }
-  }, [isInView, hasBeenInView]);
+  const devRef = useRef(null);
+  const designerRef = useRef(null);
+  useGSAP(() => {
+    gsap.fromTo(
+      devRef.current,
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        delay: 0.4,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: expertiseRef.current,
+          start: "top center",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+
+    gsap.fromTo(
+      designerRef.current,
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        delay: 0.6,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: expertiseRef.current,
+          start: "top center",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+  }, []);
 
   return (
     <section
@@ -48,10 +83,8 @@ export default function Expertise({ expertiseRef }) {
     >
       {/* Application Developer */}
       <div
-        className={`flex flex-col gap-3 w-2/2 ${styles.developerContainer} ${
-          hasBeenInView ? `${styles.section} ${styles.animate}` : styles.section
-        } p-4 relative`}
-        ref={ref}
+        className={`flex flex-col gap-3 w-2/2 ${styles.developerContainer} ${styles.section} p-4 relative`}
+        ref={devRef}
       >
         <div className="flex flex-row items-center gap-2">
           <h3 className={`text-3xl font-semibold ${styles.expertiseTitle}`}>
@@ -108,11 +141,8 @@ export default function Expertise({ expertiseRef }) {
 
       {/* Designer */}
       <div
-        className={`flex flex-col items-end gap-2 w-2/2 p-4 ${
-          styles.designerContainer
-        } ${
-          hasBeenInView ? `${styles.section} ${styles.animate}` : styles.section
-        } relative`}
+        className={`flex flex-col items-end gap-2 w-2/2 p-4 ${styles.designerContainer} ${styles.section} relative`}
+        ref={designerRef}
       >
         <div className={`flex flex-row items-center gap-2`}>
           <Lottie
