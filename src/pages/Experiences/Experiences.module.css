@@ -15,3 +15,7 @@
 .experienceContainer::webkit-scrollbar {
   display: none;
 }
+
+.resumeContainer:hover {
+  color: var(--primary-color);
+}

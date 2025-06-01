@@ -83,36 +83,35 @@ export default function AboutMe({ aboutMeRef }) {
         </div>
         <p
           className="w-2/3 pl-6 text-xl tracking-tight aboutMeParagraph"
-          style={{ lineHeight: "183%" }}
+          style={{ lineHeight: "183%", marginBottom: "80px" }}
         >
-          With 3 years of hands-on experience in design and development, I’ve
-          had the chance to dive deep into a variety of disciplines—ranging from
-          UI/UX design and front-end development to automation and digital
-          strategy. Throughout this journey, I’ve worked on crafting
-          user-centric solutions and seamless digital experiences that balance
-          both aesthetic and function. Whether I’m wireframing interfaces,
-          writing clean front-end code, or refining the user journey, my work is
-          always rooted in clarity, intention, and a strong respect for the
-          details that make good design feel effortless.
-          <br /> <br /> But for me, these past three years are just the
-          beginning. <br /> <br /> I see every project not as a finished
-          achievement, but as a stepping stone toward becoming better
-          creatively, technically, and professionally. I actively seek out
-          opportunities to challenge myself, experiment with new ideas, and
-          explore the technologies shaping the future. Lately, that’s meant
-          diving into AI-powered tools, learning more about real-time
-          applications, and building passion projects that stretch my creativity
-          and problem-solving skills. <br />
-          <br /> Outside of formal work, I dedicate time to exploring emerging
-          technologies, collaborating with like-minded creatives, and staying
-          curious. I believe that meaningful growth happens when we’re open to
-          evolving, and I embrace that mindset in everything I do. I’m always
-          eager to contribute, to learn from others, and to push the boundaries
-          of my knowledge and creativity. <br /> <br /> In a fast-paced industry
-          like tech and design, staying still isn’t an option and that’s exactly
-          what excites me. Each new challenge is an invitation to grow, each
-          collaboration a chance to see from a new perspective, and each idea a
-          potential spark for something impactful.
+          With 3 years of hands-on experience in digital product development,
+          I’ve cultivated a deep technical foundation across front-end
+          engineering, UI/UX design, automation, and digital systems strategy.
+          My core drive lies in building scalable, user-focused applications
+          that are not just functional, but forward-thinking. I thrive in
+          turning complex ideas into real-world solutions whether it’s
+          architecting intuitive interfaces, implementing efficient codebases,
+          or streamlining processes through automation. <br /> <br />
+          But at the heart of it, I’m a technologist. I’m genuinely passionate
+          about where technology is going, especially in the realms of
+          application development, blockchain, and AI. These aren’t just
+          buzzwords to me—they’re areas I actively explore, build with, and aim
+          to master. I’m currently focused on deepening my skills in real-time
+          web applications, decentralized solutions, and AI-powered experiences.
+          I enjoy building side projects that test boundaries and let me
+          experiment with bleeding-edge tools and architectures.
+          <br /> <br />
+          To me, every project is a chance to grow technically, creatively, and
+          professionally. I don’t just want to contribute to the future of
+          tech—I want to build it. I stay curious, stay hands-on, and surround
+          myself with people who push ideas forward. I believe in learning by
+          doing, in building with purpose, and in the power of code to shape the
+          way we live and interact.
+          <br /> <br />
+          In a rapidly evolving landscape, I’m not here to stay comfortable. I’m
+          here to engineer impact, explore possibilities, and be part of what’s
+          next.
         </p>
       </div>
     </section>

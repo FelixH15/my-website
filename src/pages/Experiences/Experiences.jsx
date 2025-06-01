@@ -2,6 +2,8 @@ import styles from "./Experiences.module.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import scrollTrigger from "gsap/ScrollTrigger";
+import arrowRight from "../../assets/arrowRight.svg";
+import cvFile from "../../assets/cv-ats-felix.pdf";
 import { useRef } from "react";
 gsap.registerPlugin(scrollTrigger);
 gsap.registerPlugin(useGSAP);
@@ -40,6 +42,7 @@ const experiencesArr = [
 function Experiences({ experienceRef }) {
   const stickyContainerRef = useRef(null);
   const experienceContainerRef = useRef(null);
+  const arrowRef = useRef(null);
   useGSAP(() => {
     gsap.fromTo(
       stickyContainerRef.current,
@@ -75,6 +78,32 @@ function Experiences({ experienceRef }) {
       }
     );
   }, []);
+
+  function handleMouseEnter() {
+    gsap.fromTo(
+      arrowRef.current,
+      { x: 0, y: 0 },
+      {
+        x: 4,
+        y: -4,
+        duration: 0.5,
+        ease: "power2.out",
+      }
+    );
+  }
+
+  function handleMouseLeave() {
+    gsap.fromTo(
+      arrowRef.current,
+      { x: 4, y: -4 },
+      {
+        x: 0,
+        y: 0,
+        duration: 0.5,
+        ease: "power2.out",
+      }
+    );
+  }
   return (
     <section
       className="snap-section"
@@ -87,7 +116,21 @@ function Experiences({ experienceRef }) {
           ref={stickyContainerRef}
         >
           <h1 className={`text-4xl font-medium`}>/Experiences</h1>
-          <p>View my full resume</p>
+          <div
+            className={`flex flex-row gap-2 ${styles.resumeContainer}`}
+            onMouseEnter={() => handleMouseEnter()}
+            onMouseLeave={() => handleMouseLeave()}
+          >
+            <a
+              href={cvFile}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`text-base tracking-tight font-semibold`}
+            >
+              View my full resume
+            </a>
+            <img src={arrowRight} alt="arrow-right" ref={arrowRef} />
+          </div>
         </div>
         <div
           className={`flex flex-col gap-14 pl-6 ${styles.experienceContainer} w-2/3 relative`}
