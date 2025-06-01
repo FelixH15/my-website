@@ -1,4 +1,4 @@
-import styles from "./genAIPlatform.module.css";
+import styles from "./GenAIPlatform.module.css";
 import { useEffect, useRef, useState } from "react";
 import homeIcon from "../../assets/home.png";
 import Label from "../../components/util/Label/Label";
