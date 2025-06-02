@@ -9,7 +9,7 @@
 .stickyContainer {
   position: sticky;
   top: 0;
-  padding-top: 24px;
+  padding-top: 4px;
 }
 
 .experienceContainer::webkit-scrollbar {
@@ -18,4 +18,10 @@
 
 .resumeContainer:hover {
   color: var(--primary-color);
+}
+
+@media (max-width: 1440px) {
+  .experienceSection {
+    height: 180vh !important;
+  }
 }
