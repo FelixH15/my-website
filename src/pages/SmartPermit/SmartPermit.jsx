@@ -169,13 +169,13 @@ export default function SmartPermit() {
             {/* Years */}
             <div className="flex flex-row gap-12 items-center pb-4 border-b-1">
               <h2
-                className="w-[113px] font-semibold tracking-tight"
+                className="w-2/5 font-semibold tracking-tight"
                 style={{ color: "var(--primary-color)", fontSize: "32px" }}
               >
                 Years
               </h2>
               <p
-                className="text-xl"
+                className="w-3/5 text-xl"
                 style={{ lineHeight: "36px", letterSpacing: "-0.2px" }}
               >
                 2023
@@ -185,13 +185,13 @@ export default function SmartPermit() {
             {/* Role */}
             <div className="flex flex-row gap-12 items-center pb-4 border-b-1">
               <h2
-                className="w-[113px] font-semibold tracking-tight"
+                className="w-2/5 font-semibold tracking-tight"
                 style={{ color: "var(--primary-color)", fontSize: "32px" }}
               >
                 Role
               </h2>
               <p
-                className="text-xl"
+                className="w-3/5 text-xl"
                 style={{ lineHeight: "36px", letterSpacing: "-0.2px" }}
               >
                 Front end Developer
@@ -201,12 +201,12 @@ export default function SmartPermit() {
             {/* Tech Stack */}
             <div className="flex flex-row gap-12 pb-4 border-b-1">
               <h2
-                className="w-[113px] font-semibold tracking-tight"
+                className="w-2/5 font-semibold tracking-tight"
                 style={{ color: "var(--primary-color)", fontSize: "32px" }}
               >
                 Tech Stack
               </h2>
-              <div className="flex flex-row gap-3">
+              <div className="w-3/5 flex flex-row gap-3 flex-wrap">
                 <Label>HTML</Label>
                 <Label>CSS</Label>
                 <Label>Javascript</Label>

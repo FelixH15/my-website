@@ -209,7 +209,7 @@ export default function Expertise({ expertiseRef }) {
               }}
             ></div>
             <p
-              className="text-base font-normal text-right relative mr-6.5"
+              className="text-base font-normal text-right relative"
               style={{ lineHeight: "36px" }}
             >
               Specializing in UI/UX design with a focus on usability, and
