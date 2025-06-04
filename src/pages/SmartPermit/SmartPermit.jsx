@@ -99,7 +99,6 @@ export default function SmartPermit() {
           scrollTrigger: {
             trigger: prevImg,
             start: "bottom center",
-            markers: true,
             toggleActions: "play none none none",
           },
         }

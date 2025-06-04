@@ -89,7 +89,6 @@ export default function GenAIPlatform() {
           scrollTrigger: {
             trigger: prevImg,
             start: "center center",
-            markers: true,
             toggleActions: "play none none none",
           },
         }

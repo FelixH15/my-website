@@ -98,7 +98,6 @@ export default function SmartAttendance() {
           scrollTrigger: {
             trigger: prevImg,
             start: "20px center",
-            markers: true,
             toggleActions: "play none none none",
           },
         }
