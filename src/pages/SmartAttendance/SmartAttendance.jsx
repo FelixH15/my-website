@@ -22,6 +22,18 @@ export default function SmartAttendance() {
   const imageContainerRef = useRef(null);
 
   const [imageContainerHeight, setImageContainerHeight] = useState(0);
+  const [imageLoaded, setImageLoaded] = useState(0);
+
+  function handleImageLoad() {
+    setImageLoaded((count) => count + 1);
+  }
+
+  useEffect(() => {
+    if (imageLoaded === images.length) {
+      // All images loaded, now run GSAP and refresh triggers
+      ScrollTrigger.refresh();
+    }
+  }, [imageLoaded]);
 
   useEffect(() => {
     if (imageContainerRef.current) {
@@ -33,6 +45,7 @@ export default function SmartAttendance() {
     window.scrollTo(0, 0);
   }, []);
   useGSAP(() => {
+    ScrollTrigger.refresh();
     gsap.fromTo(
       ".title",
       { opacity: 0, y: -40 },
@@ -70,7 +83,6 @@ export default function SmartAttendance() {
     );
 
     gsap.set(".fade-image:not(.image1)", { opacity: 0, y: 40 });
-    gsap.set(".fade-image:not(.image2)", { opacity: 0, y: 40 });
 
     gsap.utils.toArray(".fade-image").forEach((img, i, arr) => {
       if (i === 0 || i === 1) return; // Skip the first image as it's already animated
@@ -85,7 +97,8 @@ export default function SmartAttendance() {
           ease: "power2.out",
           scrollTrigger: {
             trigger: prevImg,
-            start: "center center",
+            start: "20px center",
+            markers: true,
             toggleActions: "play none none none",
           },
         }
@@ -235,6 +248,7 @@ export default function SmartAttendance() {
               alt={`SmartAttendance${idx + 1}`}
               className={`w-full fade-image image${idx + 1}`}
               style={{ height: "auto", objectFit: "cover" }}
+              onLoad={handleImageLoad}
             />
           ))}
           <div className="flex flex-row items-center justify-between button-container">

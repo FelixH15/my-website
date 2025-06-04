@@ -22,6 +22,18 @@ export default function SmartPermit() {
   const imageContainerRef = useRef(null);
 
   const [imageContainerHeight, setImageContainerHeight] = useState(0);
+  const [imageLoaded, setImageLoaded] = useState(0);
+
+  function handleImageLoad() {
+    setImageLoaded((count) => count + 1);
+  }
+
+  useEffect(() => {
+    if (imageLoaded === images.length) {
+      // All images loaded, now run GSAP and refresh triggers
+      ScrollTrigger.refresh();
+    }
+  }, [imageLoaded]);
 
   useEffect(() => {
     if (imageContainerRef.current) {
@@ -33,6 +45,7 @@ export default function SmartPermit() {
     window.scrollTo(0, 0);
   }, []);
   useGSAP(() => {
+    ScrollTrigger.refresh();
     gsap.fromTo(
       ".title",
       { opacity: 0, y: -40 },
@@ -85,7 +98,8 @@ export default function SmartPermit() {
           ease: "power2.out",
           scrollTrigger: {
             trigger: prevImg,
-            start: "center center",
+            start: "bottom center",
+            markers: true,
             toggleActions: "play none none none",
           },
         }
@@ -230,6 +244,7 @@ export default function SmartPermit() {
               alt={`smartPermit${idx + 1}`}
               className={`w-full fade-image image${idx + 1}`}
               style={{ height: "auto", objectFit: "cover" }}
+              onLoad={handleImageLoad}
             />
           ))}
           <div className="flex flex-row items-center justify-between button-container">

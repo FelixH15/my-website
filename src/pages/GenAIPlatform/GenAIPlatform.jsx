@@ -25,12 +25,17 @@ export default function GenAIPlatform() {
     if (imageContainerRef.current) {
       setImageContainerHeight(imageContainerRef.current.offsetHeight);
     }
+
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 500);
   }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   useGSAP(() => {
+    ScrollTrigger.refresh();
     gsap.fromTo(
       ".title",
       { opacity: 0, y: -40 },
@@ -84,6 +89,7 @@ export default function GenAIPlatform() {
           scrollTrigger: {
             trigger: prevImg,
             start: "center center",
+            markers: true,
             toggleActions: "play none none none",
           },
         }

@@ -19,9 +19,3 @@
 .resumeContainer:hover {
   color: var(--primary-color);
 }
-
-@media (max-width: 1440px) {
-  .experienceSection {
-    height: 180vh !important;
-  }
-}

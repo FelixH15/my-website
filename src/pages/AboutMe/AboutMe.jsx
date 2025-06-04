@@ -44,7 +44,10 @@ export default function AboutMe({ aboutMeRef }) {
     );
   }, []);
   return (
-    <section style={{ justifyContent: "flex-start" }} ref={aboutMeRef}>
+    <section
+      style={{ paddingTop: "80px", justifyContent: "flex-start" }}
+      ref={aboutMeRef}
+    >
       <div className="flex flex-row justify-between items-start w-2/2">
         <div
           className={`flex flex-col gap-6 w-1/3 aboutMeContainer ${styles.aboutMeContainer}`}
