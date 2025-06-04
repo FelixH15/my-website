@@ -106,8 +106,8 @@ function Experiences({ experienceRef }) {
   }
   return (
     <section
-      className={`snap-section ${styles.experienceSection}`}
-      style={{ height: "150vh", justifyContent: "flex-start" }}
+      className={`${styles.experienceSection}`}
+      style={{ justifyContent: "flex-start" }}
       ref={experienceRef}
     >
       <div className="flex flex-row items-start w-2/2 justify-between">

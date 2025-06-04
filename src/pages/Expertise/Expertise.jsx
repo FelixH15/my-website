@@ -77,7 +77,7 @@ export default function Expertise({ expertiseRef }) {
 
   return (
     <section
-      className="snap-section gap-8"
+      className="snap-section"
       style={{ paddingTop: "80px", justifyContent: "flex-start" }}
       ref={expertiseRef}
     >
