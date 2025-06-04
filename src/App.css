@@ -5,7 +5,6 @@
   flex-direction: column;
   justify-content: center;
   scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
   align-items: center;
 }
 

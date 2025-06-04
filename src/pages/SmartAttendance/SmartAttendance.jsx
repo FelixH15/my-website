@@ -27,12 +27,17 @@ export default function SmartAttendance() {
     if (imageContainerRef.current) {
       setImageContainerHeight(imageContainerRef.current.offsetHeight);
     }
+
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 500);
   }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   useGSAP(() => {
+    ScrollTrigger.refresh();
     gsap.fromTo(
       ".title",
       { opacity: 0, y: -40 },
@@ -70,7 +75,6 @@ export default function SmartAttendance() {
     );
 
     gsap.set(".fade-image:not(.image1)", { opacity: 0, y: 40 });
-    gsap.set(".fade-image:not(.image2)", { opacity: 0, y: 40 });
 
     gsap.utils.toArray(".fade-image").forEach((img, i, arr) => {
       if (i === 0 || i === 1) return; // Skip the first image as it's already animated
@@ -85,7 +89,8 @@ export default function SmartAttendance() {
           ease: "power2.out",
           scrollTrigger: {
             trigger: prevImg,
-            start: "center center",
+            start: "20px center",
+            markers: true,
             toggleActions: "play none none none",
           },
         }

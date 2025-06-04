@@ -27,12 +27,17 @@ export default function SmartPermit() {
     if (imageContainerRef.current) {
       setImageContainerHeight(imageContainerRef.current.offsetHeight);
     }
+
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 500);
   }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   useGSAP(() => {
+    ScrollTrigger.refresh();
     gsap.fromTo(
       ".title",
       { opacity: 0, y: -40 },
@@ -85,7 +90,8 @@ export default function SmartPermit() {
           ease: "power2.out",
           scrollTrigger: {
             trigger: prevImg,
-            start: "center center",
+            start: "bottom center",
+            markers: true,
             toggleActions: "play none none none",
           },
         }
