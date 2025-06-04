@@ -172,13 +172,13 @@ export default function SmartAttendance() {
             {/* Years */}
             <div className="flex flex-row gap-12 items-center pb-4 border-b-1">
               <h2
-                className="w-[113px] font-semibold tracking-tight"
+                className="w-2/5 font-semibold tracking-tight"
                 style={{ color: "var(--primary-color)", fontSize: "32px" }}
               >
                 Years
               </h2>
               <p
-                className="text-xl"
+                className="w-3/5 text-xl"
                 style={{ lineHeight: "36px", letterSpacing: "-0.2px" }}
               >
                 2025
@@ -188,13 +188,13 @@ export default function SmartAttendance() {
             {/* Role */}
             <div className="flex flex-row gap-12 items-center pb-4 border-b-1">
               <h2
-                className="w-[113px] font-semibold tracking-tight"
+                className="w-2/5 font-semibold tracking-tight"
                 style={{ color: "var(--primary-color)", fontSize: "32px" }}
               >
                 Role
               </h2>
               <p
-                className="text-xl"
+                className="w-3/5 text-xl"
                 style={{ lineHeight: "36px", letterSpacing: "-0.2px" }}
               >
                 Front end Developer
@@ -204,12 +204,12 @@ export default function SmartAttendance() {
             {/* Tech Stack */}
             <div className="flex flex-row gap-12 pb-4 border-b-1">
               <h2
-                className="w-[113px] font-semibold tracking-tight"
+                className="w-2/5 font-semibold tracking-tight"
                 style={{ color: "var(--primary-color)", fontSize: "32px" }}
               >
                 Tech Stack
               </h2>
-              <div className="flex flex-row gap-3 flex-wrap">
+              <div className="w-3/5 flex flex-row gap-3 flex-wrap">
                 <Label>HTML</Label>
                 <Label>CSS</Label>
                 <Label>Javascript</Label>

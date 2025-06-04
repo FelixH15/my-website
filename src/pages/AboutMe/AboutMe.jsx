@@ -46,7 +46,7 @@ export default function AboutMe({ aboutMeRef }) {
   return (
     <section
       className="snap-section"
-      style={{ padding: "80px 0px", justifyContent: "flex-start" }}
+      style={{ justifyContent: "flex-start" }}
       ref={aboutMeRef}
     >
       <div className="flex flex-row justify-between items-start w-2/2">

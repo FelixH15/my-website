@@ -140,7 +140,7 @@ function Experiences({ experienceRef }) {
             // Experience Card
             <div className={`flex flex-row gap-5`}>
               {/* Experience Date */}
-              <h2 className="text-2xl tracking-tight font-normal w-2/5">
+              <h2 className="text-base tracking-tight font-light w-2/5">
                 {experience.date}
               </h2>
               {/* Experience Date */}
@@ -157,7 +157,7 @@ function Experiences({ experienceRef }) {
                   >
                     {experience.company}
                   </p>
-                  <p className="text-base font-normal tracking-tight">
+                  <p className="text-base font-normal">
                     {experience.description}
                   </p>
                 </div>
