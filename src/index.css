@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --primary-color: #2962fa;
+  --primary-color: #2a62fb;
   --font: PlusJakartaSans;
-  --bg-color: #0a0a0a;
+  --bg-color: #242527;
   --text-color: #ffffff;
-  --secondary-bg-color: #161616;
+  --secondary-bg-color: #2a2b2d;
 }
 
 @font-face {
