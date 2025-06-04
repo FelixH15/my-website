@@ -104,7 +104,6 @@ export default function Projects({ projectRef }) {
 
   return (
     <section
-      className="snap-section"
       style={{ paddingTop: "80px", justifyContent: "flex-start" }}
       ref={projectRef}
     >

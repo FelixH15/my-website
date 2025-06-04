@@ -15,7 +15,7 @@ export default function Home() {
   }
   return (
     <section
-      className="container flex flex-col gap-10"
+      className="container flex flex-col gap-20"
       style={{ width: "55%" }}
     >
       <Hero onHandleScrollSection={handleScrollSection} />
