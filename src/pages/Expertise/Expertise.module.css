@@ -118,3 +118,34 @@
     transform: translateY(0);
   }
 }
+
+@media (max-width: 650px) {
+  .expertiseContainer {
+    height: initial !important;
+  }
+
+  .aboutMeContainer {
+    position: static;
+    padding-left: 0px;
+    width: 100%;
+  }
+
+  .stickyContainer {
+    position: static;
+    padding-top: 0px;
+    width: 100%;
+  }
+
+  .aboutMeParagraph {
+    width: 100%;
+    padding-left: 0px;
+  }
+
+  .iconContainer {
+    flex-wrap: wrap;
+  }
+
+  .icon {
+    opacity: 1;
+  }
+}

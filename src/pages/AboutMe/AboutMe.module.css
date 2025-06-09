@@ -3,3 +3,28 @@
   top: 0;
   padding-top: 4px;
 }
+
+@media (max-width: 1120px) {
+  .aboutMeSection {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .aboutMeContainer {
+    position: static;
+    padding-left: 0px;
+    width: 100%;
+  }
+
+  .stickyContainer {
+    position: static;
+    padding-top: 0px;
+    width: 100%;
+  }
+
+  .aboutMeParagraph {
+    width: 100%;
+    padding-left: 0px;
+  }
+}

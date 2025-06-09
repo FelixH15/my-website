@@ -39,7 +39,7 @@ const experiencesArr = [
   },
 ];
 
-function Experiences({ experienceRef }) {
+function Experiences({ experienceRef, expertiseRef }) {
   const stickyContainerRef = useRef(null);
   const experienceContainerRef = useRef(null);
   const arrowRef = useRef(null);
@@ -54,8 +54,8 @@ function Experiences({ experienceRef }) {
         delay: 0.4,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: experienceRef.current,
-          start: "top bottom",
+          trigger: expertiseRef.current,
+          start: "bottom 60%",
           toggleActions: "play none none none",
         },
       }
@@ -71,8 +71,8 @@ function Experiences({ experienceRef }) {
         delay: 0.6,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: experienceRef.current,
-          start: "top bottom",
+          trigger: expertiseRef.current,
+          start: "bottom 60%",
           toggleActions: "play none none none",
         },
       }
@@ -106,11 +106,13 @@ function Experiences({ experienceRef }) {
   }
   return (
     <section
-      className={`${styles.experienceSection}`}
+      className="pt-20"
       style={{ justifyContent: "flex-start" }}
       ref={experienceRef}
     >
-      <div className="flex flex-row items-start w-2/2 justify-between">
+      <div
+        className={`flex flex-row items-start w-2/2 justify-between ${styles.experienceSection}`}
+      >
         <div
           className={`flex flex-col gap-5 cursor-pointer w-1/3 ${styles.stickyContainer}`}
           ref={stickyContainerRef}

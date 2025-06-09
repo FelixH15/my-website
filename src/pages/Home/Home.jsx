@@ -20,7 +20,7 @@ export default function Home() {
     >
       <Hero onHandleScrollSection={handleScrollSection} />
       <Expertise expertiseRef={expertiseRef} />
-      <Experiences experienceRef={experienceRef} />
+      <Experiences experienceRef={experienceRef} expertiseRef={expertiseRef} />
       <Projects projectRef={projectRef} />
       <AboutMe aboutMeRef={aboutMeRef} />
     </section>

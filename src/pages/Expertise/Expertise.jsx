@@ -77,7 +77,7 @@ export default function Expertise({ expertiseRef }) {
 
   return (
     <section
-      className="snap-section"
+      className={`${styles.experiseContainer}`}
       style={{ paddingTop: "80px", justifyContent: "flex-start" }}
       ref={expertiseRef}
     >
@@ -87,9 +87,9 @@ export default function Expertise({ expertiseRef }) {
         ref={devRef}
       >
         <div className="flex flex-row items-center gap-2">
-          <h3 className={`text-3xl font-semibold ${styles.expertiseTitle}`}>
+          <h2 className={`text-3xl font-semibold ${styles.expertiseTitle}`}>
             Front End Developer
-          </h3>
+          </h2>
           <Lottie
             className={styles.iconAnimation}
             style={{
@@ -127,7 +127,7 @@ export default function Expertise({ expertiseRef }) {
             {"</p>"}
           </p>
         </div>
-        <div className="flex flex-row gap-2">
+        <div className={`flex flex-row gap-2 ${styles.iconContainer}`}>
           {techArr.map((tech) => (
             <img
               className={`${styles.techStack} ${styles.icon}`}
@@ -154,7 +154,7 @@ export default function Expertise({ expertiseRef }) {
             loop={true}
             autoplay={true} // Lottie animation always runs
           />
-          <h3 className="text-3xl font-semibold z-10">Designer</h3>
+          <h2 className="text-3xl font-semibold z-10">Designer</h2>
         </div>
         <div className="flex flex-col items-end gap-1">
           <div
