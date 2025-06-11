@@ -114,7 +114,7 @@ export default function Expertise({ expertiseRef }) {
           >
             <div className={styles.vl}></div>
             <p
-              className="text-sm font-normal"
+              className="text-base font-normal"
               style={{
                 lineHeight: "183%",
                 letterSpacing: "-0.42px",
@@ -216,7 +216,7 @@ export default function Expertise({ expertiseRef }) {
               }}
             ></div>
             <p
-              className="text-sm font-normal text-right relative"
+              className="text-base font-normal text-right relative"
               style={{
                 lineHeight: "183%",
                 letterSpacing: "-0.42px",
