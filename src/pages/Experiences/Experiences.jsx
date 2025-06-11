@@ -164,7 +164,7 @@ function Experiences({ experienceRef, expertiseRef }) {
                     {experience.company}
                   </p>
                   <p
-                    className={"text-sm font-normal"}
+                    className={"text-base font-normal"}
                     style={{
                       lineHeight: "183%",
                       letterSpacing: "-0.42px",

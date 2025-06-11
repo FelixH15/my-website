@@ -152,7 +152,7 @@ export default function Projects({ projectRef }) {
                   </h2>
                 </div>
                 <p
-                  className="text-sm font-normal"
+                  className="text-base font-normal"
                   style={{
                     lineHeight: "183%",
                     letterSpacing: "-0.42px",
