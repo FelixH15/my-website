@@ -39,3 +39,17 @@
     width: 100%;
   }
 }
+
+@media (max-width: 650px) {
+  .experienceDetail {
+    flex-direction: column;
+  }
+
+  .experienceDesc {
+    width: 100%;
+  }
+
+  .experienceDate {
+    width: 100%;
+  }
+}

@@ -8,7 +8,7 @@
   .aboutMeSection {
     display: flex;
     flex-direction: column;
-    gap: 48px;
+    gap: 32px;
   }
 
   .aboutMeContainer {
@@ -26,5 +26,9 @@
   .aboutMeParagraph {
     width: 100%;
     padding-left: 0px;
+  }
+
+  .linkContainer {
+    flex-direction: row;
   }
 }

@@ -120,12 +120,12 @@ export default function Projects({ projectRef }) {
           /Projects
         </h1>
         <div
-          className={`flex flex-col gap-6 w-2/3 projectList ${styles.contentContainer}`}
+          className={`flex flex-col gap-14 w-2/3 projectList ${styles.contentContainer}`}
         >
           {projectArr.map((project, idx) => (
             <div
               key={project.type}
-              className={`flex flex-row gap-10 p-6 cursor-pointer rounded-xl w-2/2 ${styles.projectCard}`}
+              className={`flex flex-row gap-5 p-6 cursor-pointer rounded-xl w-2/2 ${styles.projectCard}`}
               onClick={() => handleProjectClick(project.type)}
               onMouseEnter={() => handleMouseEnter(idx)}
               onMouseLeave={() => handleMouseLeave(idx)}
@@ -152,8 +152,11 @@ export default function Projects({ projectRef }) {
                   </h2>
                 </div>
                 <p
-                  className="text-base"
-                  style={{ lineHeight: "183%", letterSpacing: "-0.42px" }}
+                  className="text-sm font-normal"
+                  style={{
+                    lineHeight: "183%",
+                    letterSpacing: "-0.42px",
+                  }}
                 >
                   {project.description}
                 </p>

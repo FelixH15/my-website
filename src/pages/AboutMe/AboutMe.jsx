@@ -56,7 +56,7 @@ export default function AboutMe({ aboutMeRef }) {
           className={`flex flex-col gap-6 w-1/3 aboutMeContainer ${styles.aboutMeContainer}`}
         >
           <h1 className={`text-4xl font-medium`}>/AboutMe</h1>
-          <div className="flex flex-col gap-2">
+          <div className={`flex flex-col gap-2 ${styles.linkContainer}`}>
             <a
               href="https://github.com/FelixH15"
               target="_blank"
@@ -86,8 +86,12 @@ export default function AboutMe({ aboutMeRef }) {
           </div>
         </div>
         <p
-          className={`w-2/3 pl-6 text-xl tracking-tight aboutMeParagraph ${styles.aboutMeParagraph}`}
-          style={{ lineHeight: "183%", marginBottom: "80px" }}
+          className={`w-2/3 pl-6 text-base tracking-tight aboutMeParagraph ${styles.aboutMeParagraph}`}
+          style={{
+            lineHeight: "183%",
+            letterSpacing: "-0.42px",
+            marginBottom: "80px",
+          }}
         >
           With 3 years of hands-on experience in digital product development,
           I’ve cultivated a deep technical foundation across front-end

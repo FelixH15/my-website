@@ -26,13 +26,11 @@
 
 .developerText .vl {
   border-left: 2px solid transparent;
-  height: 100%;
   transition: opacity 0.3s ease;
 }
 
 .designerText .vl {
   border-right: 2px solid transparent;
-  height: 100%;
   transition: opacity 0.3s ease;
 }
 
@@ -124,21 +122,20 @@
     height: initial !important;
   }
 
-  .aboutMeContainer {
-    position: static;
-    padding-left: 0px;
-    width: 100%;
-  }
-
   .stickyContainer {
     position: static;
     padding-top: 0px;
     width: 100%;
   }
 
-  .aboutMeParagraph {
-    width: 100%;
-    padding-left: 0px;
+  .developerContainer .codeTag {
+    opacity: 1;
+    animation: pulse 2s infinite;
+  }
+
+  .developerContainer .vl {
+    border-color: var(--primary-color);
+    animation: pulse 2s infinite;
   }
 
   .iconContainer {
@@ -146,6 +143,11 @@
   }
 
   .icon {
+    opacity: 1;
+  }
+
+  .developerContainer:hover .icon,
+  .designerContainer:hover .icon {
     opacity: 1;
   }
 }
