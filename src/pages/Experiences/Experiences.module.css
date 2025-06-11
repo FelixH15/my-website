@@ -19,3 +19,37 @@
 .resumeContainer:hover {
   color: var(--primary-color);
 }
+
+@media (max-width: 1120px) {
+  .experienceSection {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .experienceContainer {
+    padding-left: 0px;
+    border: none;
+    width: 100%;
+  }
+
+  .stickyContainer {
+    position: static;
+    padding-top: 0px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 650px) {
+  .experienceDetail {
+    flex-direction: column;
+  }
+
+  .experienceDesc {
+    width: 100%;
+  }
+
+  .experienceDate {
+    width: 100%;
+  }
+}

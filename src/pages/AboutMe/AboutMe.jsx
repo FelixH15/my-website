@@ -45,17 +45,21 @@ export default function AboutMe({ aboutMeRef }) {
   }, []);
   return (
     <section
-      style={{ paddingTop: "80px", justifyContent: "flex-start" }}
+      className="pt-20"
+      style={{ justifyContent: "flex-start" }}
       ref={aboutMeRef}
     >
-      <div className="flex flex-row justify-between items-start w-2/2">
+      <div
+        className={`flex flex-row justify-between items-start w-2/2 ${styles.aboutMeSection}`}
+      >
         <div
           className={`flex flex-col gap-6 w-1/3 aboutMeContainer ${styles.aboutMeContainer}`}
         >
-          <p className={`text-4xl font-medium`}>/AboutMe</p>
-          <div className="flex flex-col gap-2">
+          <h1 className={`text-4xl font-medium`}>/AboutMe</h1>
+          <div className={`flex flex-col gap-2 ${styles.linkContainer}`}>
             <a
               href="https://github.com/FelixH15"
+              target="_blank"
               className="flex flex-row gap-2 items-center"
             >
               <img src={github} alt="github-logo" className="w-8" />
@@ -69,6 +73,7 @@ export default function AboutMe({ aboutMeRef }) {
             <a
               href="https://www.linkedin.com/in/felixharriss/"
               className="flex flex-row gap-2 items-center"
+              target="_blank"
             >
               <img src={linkedin} alt="linked-logo" className="w-8" />
               <p
@@ -81,8 +86,12 @@ export default function AboutMe({ aboutMeRef }) {
           </div>
         </div>
         <p
-          className="w-2/3 pl-6 text-xl tracking-tight aboutMeParagraph"
-          style={{ lineHeight: "183%", marginBottom: "80px" }}
+          className={`w-2/3 pl-6 text-base tracking-tight aboutMeParagraph ${styles.aboutMeParagraph}`}
+          style={{
+            lineHeight: "183%",
+            letterSpacing: "-0.42px",
+            marginBottom: "80px",
+          }}
         >
           With 3 years of hands-on experience in digital product development,
           I’ve cultivated a deep technical foundation across front-end

@@ -39,7 +39,7 @@ const experiencesArr = [
   },
 ];
 
-function Experiences({ experienceRef }) {
+function Experiences({ experienceRef, expertiseRef }) {
   const stickyContainerRef = useRef(null);
   const experienceContainerRef = useRef(null);
   const arrowRef = useRef(null);
@@ -54,8 +54,8 @@ function Experiences({ experienceRef }) {
         delay: 0.4,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: experienceRef.current,
-          start: "top bottom",
+          trigger: expertiseRef.current,
+          start: "bottom 60%",
           toggleActions: "play none none none",
         },
       }
@@ -71,8 +71,8 @@ function Experiences({ experienceRef }) {
         delay: 0.6,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: experienceRef.current,
-          start: "top bottom",
+          trigger: expertiseRef.current,
+          start: "bottom 60%",
           toggleActions: "play none none none",
         },
       }
@@ -106,11 +106,13 @@ function Experiences({ experienceRef }) {
   }
   return (
     <section
-      className={`${styles.experienceSection}`}
+      className="pt-20"
       style={{ justifyContent: "flex-start" }}
       ref={experienceRef}
     >
-      <div className="flex flex-row items-start w-2/2 justify-between">
+      <div
+        className={`flex flex-row items-start w-2/2 justify-between ${styles.experienceSection}`}
+      >
         <div
           className={`flex flex-col gap-5 cursor-pointer w-1/3 ${styles.stickyContainer}`}
           ref={stickyContainerRef}
@@ -138,15 +140,19 @@ function Experiences({ experienceRef }) {
         >
           {experiencesArr.map((experience) => (
             // Experience Card
-            <div className={`flex flex-row gap-5`}>
+            <div className={`flex flex-row gap-5 ${styles.experienceDetail}`}>
               {/* Experience Date */}
-              <h2 className="text-base tracking-tight font-light w-2/5">
+              <h2
+                className={`text-base tracking-tight font-light w-2/5 ${styles.experienceDate}`}
+              >
                 {experience.date}
               </h2>
               {/* Experience Date */}
 
               {/* Experience Detail */}
-              <div className="flex flex-col gap-6 w-3/5">
+              <div
+                className={`flex flex-col gap-6 w-3/5 ${styles.experienceDesc}`}
+              >
                 <div className="flex flex-col gap-3">
                   <h3 className="text-2xl font-medium tracking-tight">
                     {experience.title}
@@ -157,7 +163,13 @@ function Experiences({ experienceRef }) {
                   >
                     {experience.company}
                   </p>
-                  <p className="text-base font-normal">
+                  <p
+                    className={"text-sm font-normal"}
+                    style={{
+                      lineHeight: "183%",
+                      letterSpacing: "-0.42px",
+                    }}
+                  >
                     {experience.description}
                   </p>
                 </div>

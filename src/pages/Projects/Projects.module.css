@@ -14,3 +14,25 @@
   top: 0;
   padding-top: 4px;
 }
+
+@media (max-width: 1120px) {
+  .projectContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .projectTitle {
+    position: static;
+  }
+
+  .contentContainer {
+    width: 100%;
+  }
+}
+
+@media (max-width: 650px) {
+  .projectCard {
+    flex-direction: column;
+  }
+}

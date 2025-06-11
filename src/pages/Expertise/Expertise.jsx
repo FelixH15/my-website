@@ -77,7 +77,7 @@ export default function Expertise({ expertiseRef }) {
 
   return (
     <section
-      className="snap-section"
+      className={`${styles.experiseContainer}`}
       style={{ paddingTop: "80px", justifyContent: "flex-start" }}
       ref={expertiseRef}
     >
@@ -86,10 +86,10 @@ export default function Expertise({ expertiseRef }) {
         className={`flex flex-col gap-3 w-2/2 ${styles.developerContainer} ${styles.section} p-4 relative`}
         ref={devRef}
       >
-        <div className="flex flex-row items-center gap-2">
-          <h3 className={`text-3xl font-semibold ${styles.expertiseTitle}`}>
-            Front End Developer
-          </h3>
+        <h2
+          className={`inline-block text-3xl font-semibold ${styles.expertiseTitle}`}
+        >
+          Front End Developer
           <Lottie
             className={styles.iconAnimation}
             style={{
@@ -99,7 +99,8 @@ export default function Expertise({ expertiseRef }) {
             loop={true}
             autoplay={true} // Lottie animation always runs
           />
-        </div>
+        </h2>
+
         <div className={`flex flex-col gap-1 ${styles.expertiseDescription}`}>
           <p
             className={`text-base font-normal ${styles.codeTag}`}
@@ -112,7 +113,13 @@ export default function Expertise({ expertiseRef }) {
             style={{ marginLeft: "13px" }}
           >
             <div className={styles.vl}></div>
-            <p className="text-base font-normal" style={{ lineHeight: "36px" }}>
+            <p
+              className="text-sm font-normal"
+              style={{
+                lineHeight: "183%",
+                letterSpacing: "-0.42px",
+              }}
+            >
               Building responsive and dynamic applications, focused on creating
               seamless, interactive experiences that bring ideas to life and
               enhance user engagement. Committed to developing intuitive,
@@ -127,7 +134,7 @@ export default function Expertise({ expertiseRef }) {
             {"</p>"}
           </p>
         </div>
-        <div className="flex flex-row gap-2">
+        <div className={`flex flex-row gap-2 ${styles.iconContainer}`}>
           {techArr.map((tech) => (
             <img
               className={`${styles.techStack} ${styles.icon}`}
@@ -154,7 +161,7 @@ export default function Expertise({ expertiseRef }) {
             loop={true}
             autoplay={true} // Lottie animation always runs
           />
-          <h3 className="text-3xl font-semibold z-10">Designer</h3>
+          <h2 className="text-3xl font-semibold z-10">Designer</h2>
         </div>
         <div className="flex flex-col items-end gap-1">
           <div
@@ -209,8 +216,11 @@ export default function Expertise({ expertiseRef }) {
               }}
             ></div>
             <p
-              className="text-base font-normal text-right relative"
-              style={{ lineHeight: "36px" }}
+              className="text-sm font-normal text-right relative"
+              style={{
+                lineHeight: "183%",
+                letterSpacing: "-0.42px",
+              }}
             >
               Specializing in UI/UX design with a focus on usability, and
               user-centered experiences. Passionate about creating intuitive

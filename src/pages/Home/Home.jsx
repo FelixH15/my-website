@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Experiences from "../Experiences/Experiences";
 import Projects from "../Projects/Projects";
 import AboutMe from "../AboutMe/AboutMe";
+import styles from "./Home.module.css";
 export default function Home() {
   const expertiseRef = useRef(null);
   const experienceRef = useRef(null);
@@ -15,12 +16,12 @@ export default function Home() {
   }
   return (
     <section
-      className="container flex flex-col gap-20"
+      className={`container flex flex-col gap-20 ${styles.adjustedWidth}`}
       style={{ width: "55%" }}
     >
       <Hero onHandleScrollSection={handleScrollSection} />
       <Expertise expertiseRef={expertiseRef} />
-      <Experiences experienceRef={experienceRef} />
+      <Experiences experienceRef={experienceRef} expertiseRef={expertiseRef} />
       <Projects projectRef={projectRef} />
       <AboutMe aboutMeRef={aboutMeRef} />
     </section>
