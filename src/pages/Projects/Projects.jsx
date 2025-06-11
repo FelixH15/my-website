@@ -13,7 +13,7 @@ const projectArr = [
     type: "smartAttendance",
     date: "2025",
     title: "Building a Smart Attendance System Web Application",
-    company: "Webling",
+    workType: "Web Development",
     description:
       "A web-based application designed for both users and administrators. Users can submit absence requests via the mobile interface, while administrators monitor and manage absences through a comprehensive dashboard on the desktop platform.",
   },
@@ -21,7 +21,7 @@ const projectArr = [
     type: "genAIPlatform",
     date: "2024",
     title: "Building a GenAI Web Platform",
-    company: "PT. IBM Indonesia",
+    workType: "Web Development",
     description:
       "A flexible Generative AI platform that empowers users to choose from multiple AI engines and personalize their experience by selecting custom personas. Whether for productivity, creativity, or conversation, users can tailor the AI to match their unique needs and tone.",
   },
@@ -29,7 +29,7 @@ const projectArr = [
     type: "smartPermit",
     date: "2023",
     title: "Building a Smart Permit System Web Application",
-    company: "PT. Jasa Teknologi Informasi IBM",
+    workType: "Web Development",
     description:
       "A web-based application for building permit requests. Users can submit their registration, and the system automatically evaluates and scores each request based on key parameters, helping streamline the approval process with data-driven decisions.",
   },
@@ -140,7 +140,7 @@ export default function Projects({ projectRef }) {
                     {project.title + " ·"}{" "}
                     <span className="inline-block">
                       <h2 className="flex gap-1">
-                        {project.company}
+                        {project.workType}
                         <img
                           src={arrowRight}
                           ref={(el) => (arrowRefs.current[idx] = el)}
