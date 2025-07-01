@@ -18,6 +18,8 @@
     "lottie-web": "^5.12.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-lazy-load-component": "^1.0.9",
+    "react-lazy-load-image-component": "^1.6.3",
     "react-router-dom": "^7.6.0",
     "styled-components": "^6.1.18",
     "tailwindcss": "^4.1.6"
