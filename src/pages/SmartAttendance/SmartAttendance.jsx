@@ -11,6 +11,7 @@ import detailDashboard from "../../assets/smartAttendance/detailDashboard.png";
 import userHome from "../../assets/smartAttendance/userHome.png";
 import Button from "../../components/util/Button/Button";
 import { useNavigate } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(useGSAP);
@@ -241,14 +242,21 @@ export default function SmartAttendance() {
           ref={imageContainerRef}
         >
           {images.map((src, idx) => (
-            <img
+            <LazyLoadImage
               key={idx}
-              src={src}
               alt={`SmartAttendance${idx + 1}`}
               className={`w-full fade-image image${idx + 1}`}
-              style={{ height: "auto", objectFit: "cover" }}
-              onLoad={handleImageLoad}
+              src={src} // use normal <img> attributes as props
             />
+
+            // <img
+            //   key={idx}
+            //   src={src}
+            //   alt={`SmartAttendance${idx + 1}`}
+            //   className={`w-full fade-image image${idx + 1}`}
+            //   style={{ height: "auto", objectFit: "cover" }}
+            //   onLoad={handleImageLoad}
+            // />
           ))}
           <div className="flex flex-row items-center justify-between button-container">
             <Button
