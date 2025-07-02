@@ -248,8 +248,8 @@ export default function SmartAttendance() {
               alt={`SmartAttendance${idx + 1}`}
               className={`w-full fade-image image${idx + 1}`}
               effect="opacity" // or "blur"
-              width="100%"
               style={{ objectFit: "cover" }}
+              onLoad={handleImageLoad}
             />
           ))}
           <div className="flex flex-row items-center justify-between button-container">
