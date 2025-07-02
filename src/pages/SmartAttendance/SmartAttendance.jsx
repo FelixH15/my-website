@@ -244,9 +244,12 @@ export default function SmartAttendance() {
           {images.map((src, idx) => (
             <LazyLoadImage
               key={idx}
+              src={src}
               alt={`SmartAttendance${idx + 1}`}
               className={`w-full fade-image image${idx + 1}`}
-              src={src} // use normal <img> attributes as props
+              effect="opacity" // or "blur"
+              width="100%"
+              style={{ objectFit: "cover" }}
             />
 
             // <img
