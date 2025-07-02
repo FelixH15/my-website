@@ -1,8 +1,34 @@
-.btn {
-  border: 1px solid transparent;
-  border-radius: 16px;
+/* .prefixImage,
+.suffiximage {
+  background-color: #272727;
+} */
+
+.suffixImage,
+.prefixImage {
+  background-color: #2a2b2d;
+  padding: 18px;
+  border-radius: 100%;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.btn:hover {
-  border-color: var(--primary-color);
+.btn:hover .suffixImage {
+  background-color: var(--secondary-color) !important;
+  transform: translateX(10px);
+}
+
+.btn:hover .prefixImage {
+  background-color: var(--secondary-color) !important;
+  transform: translateX(-10px);
+}
+
+.btn:hover .buttonText {
+  color: var(--primary-color);
+}
+
+.buttonText {
+  font-size: 32px;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.96px;
 }

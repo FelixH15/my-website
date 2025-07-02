@@ -244,13 +244,18 @@ export default function GenAIPlatform() {
             />
           ))}
           <div className="flex flex-row items-center justify-between button-container">
-            <Button
-              withImageLeft={true}
-              onHandleClick={handleHomeClick}
-              withText={false}
-              imageLeft={homeIcon}
+            <img
+              src={homeIcon}
+              alt="home-jpg"
+              style={{
+                backgroundColor: "#2a2b2d",
+                padding: "18px",
+                borderRadius: "100%",
+              }}
+              onClick={handleHomeClick}
+              className={`cursor-pointer ${styles.homeIcon}`}
             />
-            <div className="flex flex-row items-center gap-3">
+            <div className="flex flex-row items-center gap-18">
               <Button withImageLeft={true} onHandleClick={handleBackClick}>
                 Back
               </Button>

@@ -1,3 +1,7 @@
 .detailProjectContainer {
   margin: 48px 80px;
 }
+
+.homeIcon:hover {
+  background-color: var(--secondary-color) !important;
+}

@@ -251,22 +251,18 @@ export default function SmartAttendance() {
               width="100%"
               style={{ objectFit: "cover" }}
             />
-
-            // <img
-            //   key={idx}
-            //   src={src}
-            //   alt={`SmartAttendance${idx + 1}`}
-            //   className={`w-full fade-image image${idx + 1}`}
-            //   style={{ height: "auto", objectFit: "cover" }}
-            //   onLoad={handleImageLoad}
-            // />
           ))}
           <div className="flex flex-row items-center justify-between button-container">
-            <Button
-              withImageLeft={true}
-              onHandleClick={handleHomeClick}
-              withText={false}
-              imageLeft={homeIcon}
+            <img
+              src={homeIcon}
+              alt="home-jpg"
+              style={{
+                backgroundColor: "#2a2b2d",
+                padding: "18px",
+                borderRadius: "100%",
+              }}
+              onClick={handleHomeClick}
+              className={`cursor-pointer ${styles.homeIcon}`}
             />
             <div className="flex flex-row items-center gap-3">
               <Button withImageRight={true} onHandleClick={handlekNextClick}>
