@@ -23,40 +23,28 @@ export default function Button({
 
   return (
     <button
-      className={`flex flex-row gap-2 items-center cursor-pointer tracking-tight px-5 py-3 ${styles.btn} ${additionalClassName}`}
+      className={`flex flex-row gap-4 items-center cursor-pointer tracking-tight ${styles.btn} ${additionalClassName}`}
       style={{ fontSize: "24px", minWidth: "fit-content" }}
       onClick={onHandleClick}
-      onMouseEnter={() => {
-        gsap.fromTo(
-          textRef.current,
-          { opacity: 0, clipPath: "inset(0 100% 0 0)" },
-          {
-            opacity: 1,
-            clipPath: "inset(0 0% 0 0)",
-            duration: 0.5,
-            ease: "power2.out",
-          }
-        );
-      }}
-      onMouseLeave={() => {
-        gsap.to(textRef.current, {
-          opacity: 0,
-          clipPath: "inset(0 100% 0 0)",
-          duration: 0.3,
-          ease: "power2.in",
-        });
-      }}
     >
       {withImageLeft && (
-        <img src={imagePrefix} alt="image-left" className="prefix-image" />
+        <img
+          src={imagePrefix}
+          alt="image-left"
+          className={`${styles.prefixImage}`}
+        />
       )}
       {withText && (
-        <p ref={textRef} className="button-text" style={{ opacity: 0 }}>
+        <p ref={textRef} className={`${styles.buttonText}`}>
           {children}
         </p>
       )}
       {withImageRight && (
-        <img src={imageSuffix} alt="image-right" className="suffix-image" />
+        <img
+          src={imageSuffix}
+          alt="image-right"
+          className={`${styles.suffixImage}`}
+        />
       )}
     </button>
   );

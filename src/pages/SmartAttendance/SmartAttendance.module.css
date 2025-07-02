@@ -3,3 +3,7 @@
   padding: 80px 0px;
   width: 90%;
 }
+
+.homeIcon:hover {
+  background-color: var(--secondary-color) !important;
+}

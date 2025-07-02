@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(useGSAP);
@@ -235,22 +236,29 @@ export default function GenAIPlatform() {
           ref={imageContainerRef}
         >
           {images.map((src, idx) => (
-            <img
+            <LazyLoadImage
               key={idx}
               src={src}
-              alt={`genAIPlatform${idx + 1}`}
+              alt={`SmartAttendance${idx + 1}`}
               className={`w-full fade-image image${idx + 1}`}
-              style={{ height: "auto", objectFit: "cover" }}
+              effect="opacity"
+              width="100%"
+              style={{ objectFit: "cover" }}
             />
           ))}
           <div className="flex flex-row items-center justify-between button-container">
-            <Button
-              withImageLeft={true}
-              onHandleClick={handleHomeClick}
-              withText={false}
-              imageLeft={homeIcon}
+            <img
+              src={homeIcon}
+              alt="home-jpg"
+              style={{
+                backgroundColor: "#2a2b2d",
+                padding: "18px",
+                borderRadius: "100%",
+              }}
+              onClick={handleHomeClick}
+              className={`cursor-pointer ${styles.homeIcon}`}
             />
-            <div className="flex flex-row items-center gap-3">
+            <div className="flex flex-row items-center gap-18">
               <Button withImageLeft={true} onHandleClick={handleBackClick}>
                 Back
               </Button>
