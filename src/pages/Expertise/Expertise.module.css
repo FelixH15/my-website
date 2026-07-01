@@ -1,3 +1,10 @@
+.cardsRow {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
 .developerContainer .codeTag {
   opacity: 0;
 }
@@ -40,8 +47,10 @@
 .section {
   opacity: 1;
   transform: translateY(0);
-  border-radius: 8px;
-  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .developerText .vl {
@@ -74,7 +83,7 @@
 
 .developerContainer,
 .designerContainer {
-  border: 1px solid transparent;
+  border: 1px solid var(--border);
 }
 
 .developerContainer:hover .codeTag {
@@ -83,9 +92,11 @@
 }
 
 .section:hover {
-  background: var(--bg-color);
+  background: var(--surface-raised);
   position: relative;
-  border: 1px solid var(--primary-color);
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-raised);
 }
 
 .designerContainer:hover .box {

@@ -28,10 +28,11 @@
 }
 
 .heroTitle {
+  font-family: var(--font-display);
   text-align: center;
   font-feature-settings: "ss02" on, "ss03" on;
   font-size: clamp(48px, 12vw, 104px);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1;
   letter-spacing: -0.03em;
   background: linear-gradient(

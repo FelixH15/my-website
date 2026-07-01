@@ -52,14 +52,6 @@
   gap: 6px;
 }
 
-.metaLabel {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-subtle);
-}
-
 .metaValue {
   font-size: 16px;
   font-weight: 500;

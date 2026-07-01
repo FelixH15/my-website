@@ -5,16 +5,12 @@ import Experiences from "../Experiences/Experiences";
 import Projects from "../Projects/Projects";
 import AboutMe from "../AboutMe/AboutMe";
 import Navbar from "../../components/Navbar/Navbar";
-import Stats from "../../components/Stats/Stats";
-import Contact from "../../components/Contact/Contact";
-import Footer from "../../components/Footer/Footer";
 
 export default function Home() {
   const expertiseRef = useRef(null);
   const experienceRef = useRef(null);
   const projectRef = useRef(null);
   const aboutMeRef = useRef(null);
-  const contactRef = useRef(null);
 
   useEffect(() => {
     document.title = "Felix Harris — Front-End Developer & Designer";
@@ -29,7 +25,6 @@ export default function Home() {
     { id: "experiences", label: "Experiences", ref: experienceRef },
     { id: "projects", label: "Projects", ref: projectRef },
     { id: "about", label: "About", ref: aboutMeRef },
-    { id: "contact", label: "Contact", ref: contactRef },
   ];
 
   return (

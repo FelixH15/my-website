@@ -1,36 +1,4 @@
-.root {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-}
-
-.index {
-  color: var(--accent);
-  font-size: 13px;
-}
-
-.labelRow {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
 .label {
-  font-size: clamp(30px, 4vw, 44px);
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  white-space: nowrap;
-}
-
-.rule {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    var(--border-strong),
-    transparent
-  );
-  min-width: 24px;
+  font-size: 2.25rem; /* text-4xl */
+  font-weight: 500;
 }

@@ -4,6 +4,7 @@ import linkedin from "../../assets/linkedin.png";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SectionHeader from "../../components/SectionHeader/SectionHeader";
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 
@@ -55,7 +56,7 @@ export default function AboutMe({ aboutMeRef }) {
         <div
           className={`flex flex-col gap-6 w-1/3 aboutMeContainer ${styles.aboutMeContainer}`}
         >
-          <h1 className={`text-4xl font-medium`}>/AboutMe</h1>
+          <SectionHeader label="About" />
           <div className={`flex flex-col gap-2 ${styles.linkContainer}`}>
             <a
               href="https://github.com/FelixH15"

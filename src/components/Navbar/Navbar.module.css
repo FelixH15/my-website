@@ -17,6 +17,19 @@
   border-bottom-color: var(--border);
 }
 
+.progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(env(safe-area-inset-top) + 64px);
+  height: 2px;
+  background: var(--accent);
+  transform-origin: left center;
+  transform: scaleX(0);
+  will-change: transform;
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
 .nav {
   width: min(92vw, 1100px);
   margin-inline: auto;

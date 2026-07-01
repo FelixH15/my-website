@@ -137,6 +137,12 @@ export default function Navbar({ sections = [] }) {
           Resume
         </a>
       </div>
+
+      <div
+        className={styles.progress}
+        style={{ transform: `scaleX(${progress / 100})` }}
+        aria-hidden="true"
+      />
     </header>
   );
 }

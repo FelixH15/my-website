@@ -9,6 +9,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
+import SectionHeader from "../../components/SectionHeader/SectionHeader";
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(useGSAP);
 
@@ -121,11 +122,10 @@ export default function Projects({ projectRef }) {
       <div
         className={`flex flex-row justify-between items-start w-2/2 ${styles.projectContainer}`}
       >
-        <h1
-          className={`text-4xl font-medium w-1/3 projectText ${styles.projectTitle}`}
-        >
-          /Projects
-        </h1>
+        <SectionHeader
+          label="Projects"
+          className={`w-1/3 projectText ${styles.projectTitle}`}
+        />
         <div
           className={`flex flex-col gap-14 w-2/3 projectList ${styles.contentContainer}`}
         >
@@ -144,7 +144,7 @@ export default function Projects({ projectRef }) {
                   effect="opacity"
                   className={styles.thumb}
                 />
-                <span className={styles.dateBadge}>{project.date}</span>
+                <span className={`label ${styles.dateBadge}`}>{project.date}</span>
               </div>
               <div className={styles.cardBody}>
                 <div className={styles.cardHeadRow}>

@@ -46,8 +46,6 @@
   left: 10px;
   padding: 4px 10px;
   border-radius: 999px;
-  font-size: 12px;
-  font-weight: 600;
   color: var(--text);
   background: rgba(28, 29, 31, 0.72);
   backdrop-filter: blur(6px);
@@ -69,6 +67,7 @@
 }
 
 .cardTitle {
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 22px;
   line-height: var(--lh-tight);

@@ -36,10 +36,9 @@
   --secondary-bg-color: var(--surface);
   --text-color: var(--text);
 
-  /* Type families — editorial system */
+  /* Type families */
   --font: PlusJakartaSans; /* body */
-  --font-display: "Playfair Display", Georgia, serif; /* headings / name */
-  --font-mono: "JetBrains Mono", ui-monospace, monospace; /* labels / tags */
+  --font-display: "Figtree", system-ui, sans-serif; /* headings / name / labels */
 
   /* Type scale */
   --lh-body: 1.75;
@@ -90,18 +89,19 @@ section::-webkit-scrollbar {
   letter-spacing: -0.42px;
 }
 
-/* Editorial type helpers */
+/* Type helpers */
 .display {
   font-family: var(--font-display);
+  font-weight: 700;
   letter-spacing: -0.01em;
 }
 
-.mono {
-  font-family: var(--font-mono);
+.label {
+  font-family: var(--font-display);
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-subtle);
 }
 

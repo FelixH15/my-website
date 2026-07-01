@@ -141,7 +141,7 @@ export default function SmartAttendance() {
           className={`flex flex-col gap-10 w-full lg:w-2/5 ${styles.sidebar}`}
         >
           <h1
-            className="font-bold tracking-tight title"
+            className="display tracking-tight title"
             style={{ fontSize: "clamp(40px, 8vw, 64px)" }}
           >
             <span className={styles.slash}>/</span>SmartAttendance
@@ -165,15 +165,15 @@ export default function SmartAttendance() {
               </p>
             </div>
             <div className={`${styles.metaBlock} ${styles.metaRow}`}>
-              <span className={styles.metaLabel}>Year</span>
+              <span className="label">Year</span>
               <span className={styles.metaValue}>2025</span>
             </div>
             <div className={`${styles.metaBlock} ${styles.metaRow}`}>
-              <span className={styles.metaLabel}>Role</span>
+              <span className="label">Role</span>
               <span className={styles.metaValue}>Front End Developer</span>
             </div>
             <div className={`${styles.metaBlock} ${styles.metaRow}`}>
-              <span className={styles.metaLabel}>Tech Stack</span>
+              <span className="label">Tech Stack</span>
               <div className={styles.stackWrap}>
                 <Label>HTML</Label>
                 <Label>CSS</Label>
