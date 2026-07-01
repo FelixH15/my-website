@@ -8,9 +8,29 @@
   opacity: 0;
 }
 
+.iconChip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition: transform 0.25s ease, border-color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.iconChip:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  background: var(--surface-raised);
+}
+
 .icon {
-  opacity: 0;
-  animation: float 3s ease-in-out infinite;
+  width: 24px;
+  height: 24px;
+  opacity: 0.9;
 }
 
 .designerContainer .box {
@@ -57,11 +77,6 @@
   border: 1px solid transparent;
 }
 
-.developerContainer:hover .icon,
-.designerContainer:hover .icon {
-  opacity: 0.3;
-}
-
 .developerContainer:hover .codeTag {
   opacity: 1;
   animation: pulse 2s infinite;
@@ -80,10 +95,6 @@
 .developerContainer:hover .vl {
   border-left-color: var(--primary-color);
   animation: pulse 2s infinite;
-}
-
-.icon:hover {
-  opacity: 1 !important;
 }
 
 @keyframes float {

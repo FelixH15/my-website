@@ -131,39 +131,22 @@ export default function GenAIPlatform() {
       className={`${styles.detailProjectContainer}`}
       style={{ minHeight: `${imageContainerHeight}` }}
     >
-      <div className="flex flex-row gap-32">
+      <div className="flex flex-col lg:flex-row gap-12 lg:gap-32">
         <div
-          className="flex flex-col gap-10 w-2/5"
-          style={{
-            position: "sticky",
-            top: "40px",
-            alignSelf: "flex-start",
-          }}
+          className={`flex flex-col gap-10 w-full lg:w-2/5 ${styles.sidebar}`}
         >
           <h1
             className="font-bold tracking-tight title"
-            style={{ fontSize: "64px" }}
+            style={{ fontSize: "clamp(40px, 8vw, 64px)" }}
           >
-            /GenAIPlatform
+            <span className={styles.slash}>/</span>GenAIPlatform
           </h1>
 
           {/* Project Description Container */}
-          <div className="flex flex-col gap-8 projectDescription">
-            {/* Project Overview */}
-            <div className="flex flex-col gap-3 pb-4 border-b-1">
-              <h2
-                className="font-bold tracking-tight"
-                style={{
-                  fontSize: "32px",
-                  color: "var(--primary-color)",
-                }}
-              >
-                Project Overview
-              </h2>
-              <p
-                className="text-xl"
-                style={{ lineHeight: "36px", letterSpacing: "-0.2px" }}
-              >
+          <div className={`projectDescription ${styles.metaCard}`}>
+            <div className={styles.metaBlock}>
+              <h2 className={styles.overviewTitle}>Project Overview</h2>
+              <p className={`bodyText ${styles.overviewText}`}>
                 Developing an AI platform solution for enterprise-level
                 applications by translating complex designs into intuitive and
                 user-friendly interfaces. Responsible for creating responsive
@@ -172,48 +155,17 @@ export default function GenAIPlatform() {
                 efficient functionality across the platform.
               </p>
             </div>
-            {/* Project Overview */}
-            {/* Years */}
-            <div className="flex flex-row gap-12 items-center pb-4 border-b-1">
-              <h2
-                className="w-2/5 font-semibold tracking-tight"
-                style={{ color: "var(--primary-color)", fontSize: "32px" }}
-              >
-                Years
-              </h2>
-              <p
-                className="w-3/5 text-xl"
-                style={{ lineHeight: "36px", letterSpacing: "-0.2px" }}
-              >
-                2024
-              </p>
+            <div className={`${styles.metaBlock} ${styles.metaRow}`}>
+              <span className={styles.metaLabel}>Year</span>
+              <span className={styles.metaValue}>2024</span>
             </div>
-            {/* Years */}
-            {/* Role */}
-            <div className="flex flex-row gap-12 items-center pb-4 border-b-1">
-              <h2
-                className="w-2/5 font-semibold tracking-tight"
-                style={{ color: "var(--primary-color)", fontSize: "32px" }}
-              >
-                Role
-              </h2>
-              <p
-                className="w-3/5 text-xl"
-                style={{ lineHeight: "36px", letterSpacing: "-0.2px" }}
-              >
-                Front end Developer
-              </p>
+            <div className={`${styles.metaBlock} ${styles.metaRow}`}>
+              <span className={styles.metaLabel}>Role</span>
+              <span className={styles.metaValue}>Front End Developer</span>
             </div>
-            {/* Role */}
-            {/* Tech Stack */}
-            <div className="flex flex-row gap-12 pb-4 border-b-1">
-              <h2
-                className="w-2/5 font-semibold tracking-tight"
-                style={{ color: "var(--primary-color)", fontSize: "32px" }}
-              >
-                Tech Stack
-              </h2>
-              <div className="w-3/5 flex flex-row gap-3 flex-wrap">
+            <div className={`${styles.metaBlock} ${styles.metaRow}`}>
+              <span className={styles.metaLabel}>Tech Stack</span>
+              <div className={styles.stackWrap}>
                 <Label>HTML</Label>
                 <Label>CSS</Label>
                 <Label>Javascript</Label>
@@ -225,40 +177,42 @@ export default function GenAIPlatform() {
                 <Label>OpenAI API</Label>
               </div>
             </div>
-            {/* Tech Stack */}
           </div>
           {/* Project Description Container */}
         </div>
 
         {/* Image */}
         <div
-          className="flex flex-col w-3/5 gap-18 image-container"
+          className="flex flex-col w-full lg:w-3/5 gap-18 image-container"
           ref={imageContainerRef}
         >
           {images.map((src, idx) => (
-            <LazyLoadImage
-              key={idx}
-              src={src}
-              alt={`SmartAttendance${idx + 1}`}
-              className={`w-full fade-image image${idx + 1}`}
-              effect="opacity"
-              width="100%"
-              style={{ objectFit: "cover" }}
-            />
+            <div key={idx} className={`fade-image image${idx + 1}`}>
+              <div className={styles.frame}>
+                <div className={styles.frameBar}>
+                  <span />
+                  <span />
+                  <span />
+                </div>
+                <LazyLoadImage
+                  src={src}
+                  alt={`GenAI Platform screenshot ${idx + 1}`}
+                  className={styles.frameImg}
+                  effect="opacity"
+                />
+              </div>
+            </div>
           ))}
           <div className="flex flex-row items-center justify-between button-container">
-            <img
-              src={homeIcon}
-              alt="home-jpg"
-              style={{
-                backgroundColor: "#2a2b2d",
-                padding: "18px",
-                borderRadius: "100%",
-              }}
+            <button
+              type="button"
+              aria-label="Back to home"
               onClick={handleHomeClick}
-              className={`cursor-pointer ${styles.homeIcon}`}
-            />
-            <div className="flex flex-row items-center gap-18">
+              className={styles.homeBtn}
+            >
+              <img src={homeIcon} alt="" className={styles.homeIconImg} />
+            </button>
+            <div className="flex flex-row items-center gap-8">
               <Button withImageLeft={true} onHandleClick={handleBackClick}>
                 Back
               </Button>

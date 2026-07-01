@@ -1,34 +1,40 @@
-/* .prefixImage,
-.suffiximage {
-  background-color: #272727;
-} */
+.btn {
+  color: var(--text);
+  transition: color 0.2s ease;
+}
 
 .suffixImage,
 .prefixImage {
-  background-color: #2a2b2d;
-  padding: 18px;
+  width: 44px;
+  height: 44px;
+  background-color: var(--surface-raised);
+  padding: 12px;
   border-radius: 100%;
+  border: 1px solid var(--border);
   transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.2s ease;
 }
 
 .btn:hover .suffixImage {
-  background-color: var(--secondary-color) !important;
-  transform: translateX(10px);
+  background-color: var(--accent-soft);
+  border-color: var(--accent);
+  transform: translateX(8px);
 }
 
 .btn:hover .prefixImage {
-  background-color: var(--secondary-color) !important;
-  transform: translateX(-10px);
+  background-color: var(--accent-soft);
+  border-color: var(--accent);
+  transform: translateX(-8px);
 }
 
 .btn:hover .buttonText {
-  color: var(--primary-color);
+  color: var(--accent);
 }
 
 .buttonText {
-  font-size: 32px;
-  font-style: normal;
+  font-size: 18px;
+  font-weight: 600;
   line-height: normal;
-  letter-spacing: -0.96px;
+  letter-spacing: -0.02em;
 }

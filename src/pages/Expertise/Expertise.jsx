@@ -23,18 +23,22 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(useGSAP);
 
 const techArr = [
-  html,
-  css,
-  javascript,
-  typescript,
-  angular,
-  react,
-  java,
-  python,
-  springboot,
+  { src: html, name: "HTML5" },
+  { src: css, name: "CSS3" },
+  { src: javascript, name: "JavaScript" },
+  { src: typescript, name: "TypeScript" },
+  { src: angular, name: "Angular" },
+  { src: react, name: "React" },
+  { src: java, name: "Java" },
+  { src: python, name: "Python" },
+  { src: springboot, name: "Spring Boot" },
 ];
 
-const designArr = [notion, figma, canva];
+const designArr = [
+  { src: notion, name: "Notion" },
+  { src: figma, name: "Figma" },
+  { src: canva, name: "Canva" },
+];
 
 export default function Expertise({ expertiseRef }) {
   const devRef = useRef(null);
@@ -77,7 +81,7 @@ export default function Expertise({ expertiseRef }) {
 
   return (
     <section
-      className={`${styles.experiseContainer}`}
+      className={`${styles.expertiseContainer}`}
       style={{ paddingTop: "80px", justifyContent: "flex-start" }}
       ref={expertiseRef}
     >
@@ -113,13 +117,7 @@ export default function Expertise({ expertiseRef }) {
             style={{ marginLeft: "13px" }}
           >
             <div className={styles.vl}></div>
-            <p
-              className="text-base font-normal"
-              style={{
-                lineHeight: "183%",
-                letterSpacing: "-0.42px",
-              }}
-            >
+            <p className="text-base font-normal bodyText">
               Building responsive and dynamic applications, focused on creating
               seamless, interactive experiences that bring ideas to life and
               enhance user engagement. Committed to developing intuitive,
@@ -136,11 +134,13 @@ export default function Expertise({ expertiseRef }) {
         </div>
         <div className={`flex flex-row gap-2 ${styles.iconContainer}`}>
           {techArr.map((tech) => (
-            <img
-              className={`${styles.techStack} ${styles.icon}`}
-              src={tech}
-              alt="tech-stack-logo"
-            />
+            <span key={tech.name} className={styles.iconChip} title={tech.name}>
+              <img
+                className={`${styles.techStack} ${styles.icon}`}
+                src={tech.src}
+                alt={tech.name}
+              />
+            </span>
           ))}
         </div>
       </div>
@@ -215,13 +215,7 @@ export default function Expertise({ expertiseRef }) {
                 right: "-8px",
               }}
             ></div>
-            <p
-              className="text-base font-normal text-right relative"
-              style={{
-                lineHeight: "183%",
-                letterSpacing: "-0.42px",
-              }}
-            >
+            <p className="text-base font-normal text-right relative bodyText">
               Specializing in UI/UX design with a focus on usability, and
               user-centered experiences. Passionate about creating intuitive
               layouts, seamless user flows, and visually engaging interfaces
@@ -233,11 +227,13 @@ export default function Expertise({ expertiseRef }) {
         </div>
         <div className="flex flex-row gap-2">
           {designArr.map((design) => (
-            <img
-              className={`${styles.techStack} ${styles.icon}`}
-              src={design}
-              alt="tech-stack-logo"
-            />
+            <span key={design.name} className={styles.iconChip} title={design.name}>
+              <img
+                className={`${styles.techStack} ${styles.icon}`}
+                src={design.src}
+                alt={design.name}
+              />
+            </span>
           ))}
         </div>
       </div>

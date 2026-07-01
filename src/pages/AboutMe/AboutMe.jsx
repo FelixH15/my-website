@@ -86,12 +86,8 @@ export default function AboutMe({ aboutMeRef }) {
           </div>
         </div>
         <p
-          className={`w-2/3 pl-6 text-base tracking-tight aboutMeParagraph ${styles.aboutMeParagraph}`}
-          style={{
-            lineHeight: "183%",
-            letterSpacing: "-0.42px",
-            marginBottom: "80px",
-          }}
+          className={`w-2/3 pl-6 text-base bodyText aboutMeParagraph ${styles.aboutMeParagraph}`}
+          style={{ marginBottom: "80px", color: "var(--text-muted)" }}
         >
           With 3 years of hands-on experience in digital product development,
           I’ve cultivated a deep technical foundation across front-end

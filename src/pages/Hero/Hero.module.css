@@ -1,28 +1,166 @@
 .nameContainer {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  gap: 12px;
   position: relative;
+  z-index: 1;
+}
+
+/* Ambient radial glow behind the hero */
+.glow {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  width: min(720px, 90vw);
+  height: min(720px, 90vw);
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    var(--accent-glow) 0%,
+    rgba(255, 193, 7, 0.06) 38%,
+    transparent 68%
+  );
+  filter: blur(8px);
+  pointer-events: none;
+  z-index: 0;
+  animation: pulseGlow 6s ease-in-out infinite;
 }
 
 .heroTitle {
-  color: var(--primary-color);
   text-align: center;
   font-feature-settings: "ss02" on, "ss03" on;
-  font-size: 96px;
-  font-style: normal;
+  font-size: clamp(48px, 12vw, 104px);
   font-weight: 700;
-  line-height: normal;
-  letter-spacing: -2.88px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  background: linear-gradient(
+    180deg,
+    var(--accent-strong) 0%,
+    var(--accent) 55%,
+    var(--accent-deep) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: fadeIn 1.5s ease;
+}
+
+/* Shrink-wraps to the full line width and centers the whole block,
+   so the text below reveals left-to-right (not from the center) */
+.typeWrap {
+  width: max-content;
+  max-width: 100%;
+  margin: 2px auto 0;
 }
 
 .typing1 {
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: 0.15em solid var(--text-color); /* The typwriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
-  width: 96%;
-  margin: 1px auto; /* Gives that scrolling effect as the typing happens */
-  animation: typing 3s, cursor 0.4s step-end infinite alternate;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: left;
+  color: var(--text);
+  border-right: 0.12em solid var(--accent);
+  animation: typing 3s steps(41, end) forwards,
+    cursor 0.5s step-end infinite alternate;
+}
+
+.subline {
+  max-width: 46ch;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-top: 4px;
+  animation: fadeIn 1.8s ease;
+}
+
+.ctaRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeIn 2s ease;
+}
+
+.primaryCta {
+  min-height: 48px;
+  padding: 0 26px;
+  border-radius: 999px;
+  border: none;
+  background: var(--accent);
+  color: #1c1d1f;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: var(--tracking-tight);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.primaryCta:hover {
+  background: var(--accent-strong);
+  box-shadow: var(--shadow-accent);
+  transform: translateY(-2px);
+}
+
+.secondaryCta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: var(--tracking-tight);
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+.secondaryCta:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-2px);
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 4px;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+.socialLink:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-2px);
+}
+
+.socialIcon {
+  width: 22px;
+  height: 22px;
+}
+
+.scrollCue {
+  width: 64px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 42px;
+  z-index: 1;
 }
 
 @keyframes cursor {
@@ -35,16 +173,15 @@
   from {
     width: 0;
   }
-}
-
-.heroTitle {
-  animation: fadeIn 1.5s ease;
+  to {
+    width: 100%;
+  }
 }
 
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(-16px);
   }
   100% {
     opacity: 1;
@@ -52,14 +189,29 @@
   }
 }
 
-@media (max-width: 768px) {
-  .typing1 {
-    width: 100% !important;
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 0.75;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.06);
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 600px) {
+  .typeWrap {
+    width: 100%;
+  }
   .typing1 {
-    font-size: 16px;
+    width: 100%;
+    white-space: normal;
+    text-align: center;
+    overflow: visible;
+    border-right: none;
+    animation: fadeIn 1.6s ease;
+    font-size: 18px;
   }
 }

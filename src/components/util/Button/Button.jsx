@@ -23,8 +23,8 @@ export default function Button({
 
   return (
     <button
-      className={`flex flex-row gap-4 items-center cursor-pointer tracking-tight ${styles.btn} ${additionalClassName}`}
-      style={{ fontSize: "24px", minWidth: "fit-content" }}
+      className={`flex flex-row gap-3 items-center cursor-pointer tracking-tight ${styles.btn} ${additionalClassName}`}
+      style={{ minWidth: "fit-content" }}
       onClick={onHandleClick}
     >
       {withImageLeft && (

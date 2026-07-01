@@ -1,5 +1,28 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: var(--tracking-tight);
+  line-height: 1;
+  color: var(--text);
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  transition: border-color 0.2s ease, background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.chip:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-2px);
+}
+
 @media (max-width: 1440px) {
-  .text {
-    font-size: 12px;
+  .chip {
+    font-size: 13px;
+    padding: 6px 12px;
   }
 }

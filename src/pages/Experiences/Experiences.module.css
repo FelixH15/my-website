@@ -8,11 +8,11 @@
 
 .stickyContainer {
   position: sticky;
-  top: 0;
+  top: 88px;
   padding-top: 4px;
 }
 
-.experienceContainer::webkit-scrollbar {
+.experienceContainer::-webkit-scrollbar {
   display: none;
 }
 

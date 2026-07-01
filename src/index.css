@@ -1,40 +1,139 @@
 @import "tailwindcss";
 
-:root {
-  --primary-color: #ffc107;
-  --secondary-color: #3f3716;
-  --font: PlusJakartaSans;
-  --bg-color: #242527;
-  --text-color: #ffffff;
-  --secondary-bg-color: #2a2b2d;
-}
-
 @font-face {
   font-family: "PlusJakartaSans";
-  src: url("/fonts/PlusJakartaSans-Variable.ttf") format("truetype");
+  src: url("./fonts/PlusJakartaSans-VF.ttf") format("truetype");
   font-weight: 100 800;
   font-style: normal;
   font-display: swap;
 }
 
-.darkmode {
-  --bg-color: #242527;
-  --text-color: #ffffff;
+:root {
+  /* Brand accent — signature amber, refined into a ramp */
+  --accent: #ffc107;
+  --accent-strong: #ffcf33;
+  --accent-deep: #e0a800;
+  --accent-soft: rgba(255, 193, 7, 0.14);
+  --accent-glow: rgba(255, 193, 7, 0.35);
+  --secondary-color: #3f3716;
+
+  /* Surfaces — dark neutral ramp */
+  --bg: #1c1d1f;
+  --bg-elevated: #242527;
+  --surface: #2a2b2d;
+  --surface-raised: #313234;
+  --border: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  /* Text ramp (verified vs --bg #1c1d1f) */
+  --text: #f4f4f5; /* ~15:1  */
+  --text-muted: #b8b9bb; /* ~7:1   */
+  --text-subtle: #8b8c8f; /* ~4.6:1 */
+
+  /* Back-compat aliases (older components reference these) */
+  --primary-color: var(--accent);
+  --bg-color: var(--bg-elevated);
+  --secondary-bg-color: var(--surface);
+  --text-color: var(--text);
+
+  /* Type families — editorial system */
+  --font: PlusJakartaSans; /* body */
+  --font-display: "Playfair Display", Georgia, serif; /* headings / name */
+  --font-mono: "JetBrains Mono", ui-monospace, monospace; /* labels / tags */
+
+  /* Type scale */
+  --lh-body: 1.75;
+  --lh-tight: 1.28;
+  --tracking-tight: -0.02em;
+  --tracking-body: -0.01em;
+
+  /* Spacing rhythm (8px) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 80px;
+
+  /* Radius + elevation */
+  --radius: 12px;
+  --radius-lg: 20px;
+  --shadow-raised: 0 10px 30px -12px rgba(0, 0, 0, 0.6);
+  --shadow-accent: 0 12px 40px -14px var(--accent-glow);
+
+  color-scheme: dark;
 }
 
-.lightmode {
-  --bg-color: #ffffff;
-  --text-color: #242527;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--bg-color);
-  color: var(--text-color);
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font), system-ui, sans-serif;
   font-weight: 400;
+  letter-spacing: var(--tracking-body);
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE 10+ */
 }
 
+body::-webkit-scrollbar,
 section::-webkit-scrollbar {
   display: none;
+}
+
+/* Reusable body-copy treatment (replaces scattered inline line-height/tracking) */
+.bodyText {
+  line-height: var(--lh-body);
+  letter-spacing: -0.42px;
+}
+
+/* Editorial type helpers */
+.display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-subtle);
+}
+
+/* Subtle film grain for premium depth */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Accessible focus ring for keyboard users */
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -1,5 +1,9 @@
 import { useNavigate } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import arrowRight from "../../assets/arrowRight.svg";
+import smartAttendanceThumb from "../../assets/smartAttendance/dashboard.png";
+import genAIThumb from "../../assets/genAI/home.png";
+import smartPermitThumb from "../../assets/smartPermit/home.png";
 import styles from "./Projects.module.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -12,7 +16,8 @@ const projectArr = [
   {
     type: "smartAttendance",
     date: "2025",
-    title: "Building a Smart Attendance System Web Application",
+    thumbnail: smartAttendanceThumb,
+    title: "Smart Attendance System Web Application",
     workType: "Web Development",
     description:
       "A web-based application designed for both users and administrators. Users can submit absence requests via the mobile interface, while administrators monitor and manage absences through a comprehensive dashboard on the desktop platform.",
@@ -20,7 +25,8 @@ const projectArr = [
   {
     type: "genAIPlatform",
     date: "2024",
-    title: "Building a GenAI Web Platform",
+    thumbnail: genAIThumb,
+    title: "GenAI Web Platform",
     workType: "Web Development",
     description:
       "A flexible Generative AI platform that empowers users to choose from multiple AI engines and personalize their experience by selecting custom personas. Whether for productivity, creativity, or conversation, users can tailor the AI to match their unique needs and tone.",
@@ -28,7 +34,8 @@ const projectArr = [
   {
     type: "smartPermit",
     date: "2023",
-    title: "Building a Smart Permit System Web Application",
+    thumbnail: smartPermitThumb,
+    title: "Smart Permit System Web Application",
     workType: "Web Development",
     description:
       "A web-based application for building permit requests. Users can submit their registration, and the system automatically evaluates and scores each request based on key parameters, helping streamline the approval process with data-driven decisions.",
@@ -125,39 +132,34 @@ export default function Projects({ projectRef }) {
           {projectArr.map((project, idx) => (
             <div
               key={project.type}
-              className={`flex flex-row gap-5 p-6 cursor-pointer rounded-xl w-2/2 ${styles.projectCard}`}
+              className={`cursor-pointer ${styles.projectCard}`}
               onClick={() => handleProjectClick(project.type)}
               onMouseEnter={() => handleMouseEnter(idx)}
               onMouseLeave={() => handleMouseLeave(idx)}
             >
-              <p className="font-light text-base">{project.date}</p>
-              <div className="flex flex-col gap-3">
-                <div className="flex flex-row gap-3">
-                  <h2
-                    className={`font-bold text-xl ${styles.cardTitle}`}
-                    style={{ lineHeight: "128%", letterSpacing: "-0.6px" }}
-                  >
-                    {project.title + " ·"}{" "}
-                    <span className="inline-block">
-                      <h2 className="flex gap-1">
-                        {project.workType}
-                        <img
-                          src={arrowRight}
-                          ref={(el) => (arrowRefs.current[idx] = el)}
-                          className={`w-3 ${styles.arrow}`}
-                          alt="arrow-right"
-                        />
-                      </h2>
-                    </span>
-                  </h2>
+              <div className={styles.thumbWrap}>
+                <LazyLoadImage
+                  src={project.thumbnail}
+                  alt={`${project.title} preview`}
+                  effect="opacity"
+                  className={styles.thumb}
+                />
+                <span className={styles.dateBadge}>{project.date}</span>
+              </div>
+              <div className={styles.cardBody}>
+                <div className={styles.cardHeadRow}>
+                  <h2 className={styles.cardTitle}>{project.title}</h2>
+                  <span className={styles.workTag}>
+                    {project.workType}
+                    <img
+                      src={arrowRight}
+                      ref={(el) => (arrowRefs.current[idx] = el)}
+                      className={styles.arrow}
+                      alt=""
+                    />
+                  </span>
                 </div>
-                <p
-                  className="text-base font-normal"
-                  style={{
-                    lineHeight: "183%",
-                    letterSpacing: "-0.42px",
-                  }}
-                >
+                <p className={`bodyText text-base ${styles.cardDesc}`}>
                   {project.description}
                 </p>
               </div>

@@ -140,7 +140,10 @@ function Experiences({ experienceRef, expertiseRef }) {
         >
           {experiencesArr.map((experience) => (
             // Experience Card
-            <div className={`flex flex-row gap-5 ${styles.experienceDetail}`}>
+            <div
+              key={`${experience.company}-${experience.date}`}
+              className={`flex flex-row gap-5 ${styles.experienceDetail}`}
+            >
               {/* Experience Date */}
               <h2
                 className={`text-base tracking-tight font-light w-2/5 ${styles.experienceDate}`}
@@ -163,13 +166,7 @@ function Experiences({ experienceRef, expertiseRef }) {
                   >
                     {experience.company}
                   </p>
-                  <p
-                    className={"text-base font-normal"}
-                    style={{
-                      lineHeight: "183%",
-                      letterSpacing: "-0.42px",
-                    }}
-                  >
+                  <p className="text-base font-normal bodyText text-[var(--text-muted)]">
                     {experience.description}
                   </p>
                 </div>
